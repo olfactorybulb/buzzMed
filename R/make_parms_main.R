@@ -93,7 +93,7 @@ make_parms_main <- function(
   # Highest Priority: Skip to Named Arguments (bypass my_prior and wizard)
   if (isFALSE(advanced)) {
     if (!is.null(my_prior)) {
-      warning("'my_prior' is ignored when advanced = FALSE.")
+      message("'my_prior' is ignored when advanced = FALSE.")
     }
 
     if (named_args_provided) {
@@ -149,7 +149,7 @@ make_parms_main <- function(
   # Medium Priority: Custom Dataframe
   if (!is.null(my_prior)) {
     if (named_args_provided) {
-      warning("Both 'my_prior' and named arguments supplied. 'my_prior' takes priority.")
+      message("Both 'my_prior' and named arguments supplied. 'my_prior' takes priority.")
     }
     return(make_parms_from_df(my_prior))
   }

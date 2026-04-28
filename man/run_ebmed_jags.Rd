@@ -59,7 +59,4 @@ Parameters monitored by default include coefficients (\code{a}, \code{b},
 \code{direct.coef}), inclusion probabilities (\code{pip}), and joint
 inclusion indicators (\code{ind.joint}).
 }
-\seealso{
-\code{\link{buzzEBMedAuto}}
-}
 \keyword{internal}

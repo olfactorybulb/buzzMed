@@ -65,7 +65,4 @@ The function uses the null-coalescing operator \code{\%||\%} to apply
 system defaults when \code{NULL} values are passed from the main
 wrapper functions.
 }
-\seealso{
-\code{\link{buzzEBMedAuto}}
-}
 \keyword{internal}

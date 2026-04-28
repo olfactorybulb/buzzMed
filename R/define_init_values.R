@@ -40,7 +40,6 @@
 #' system defaults when \code{NULL} values are passed from the main
 #' wrapper functions.
 #'
-#' @seealso \code{\link{buzzEBMedAuto}}
 #' @keywords internal
 #'
 #'

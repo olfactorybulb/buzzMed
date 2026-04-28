@@ -64,7 +64,6 @@
 #' \doi{10.1080/10705511.2022.2164285}
 #'
 #' @family buzzEBMed_fitters
-#' @seealso \code{\link{buzzEBMedAuto}} for the automatic dispatcher.
 #'
 #' @examples
 #' \dontrun{
@@ -172,5 +171,8 @@ buzzEBMcontYcat <- function(
                            n_iter = n_iter,
                            thin = thin)
 
-  return(output)
+  ## 5. extract results
+  res <- extract_results(output, M)
+
+  return(res)
 }

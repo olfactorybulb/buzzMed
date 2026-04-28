@@ -140,8 +140,6 @@ Multidisciplinary Journal}, 30(6), 887–900.
 \doi{10.1080/10705511.2022.2164285}
 }
 \seealso{
-\code{\link{buzzEBMedAuto}} for the automatic dispatcher.
-
 Other buzzEBMed_fitters: 
 \code{\link{buzzEBMcatYcat}()},
 \code{\link{buzzEBMcontYcat}()},

@@ -56,14 +56,12 @@
 #'
 #' @return A \code{data.frame} with columns \code{priors}, \code{distribution},
 #' and \code{arguments}. This dataframe is formatted to be passed directly
-#' to the \code{my_prior} argument in \code{\link{buzzEBMedAuto}} and
-#' related fitting functions.
+#' to the \code{my_prior} argument in related fitting functions.
 #'
 #' @note
 #' This function requires an interactive R session. It will return
 #' \code{invisible(NULL)} if the user cancels the process.
 #'
-#' @seealso \code{\link{buzzEBMedAuto}}
 #'
 #' @examples
 #' \dontrun{
@@ -71,7 +69,7 @@
 #' custom_priors <- run_parms_wizard()
 #'
 #' # Use the resulting object in a model
-#' fit <- buzzEBMedAuto(model = "Y ~ M + X",
+#' fit <- buzzEBMcatMcatY(model = "Y ~ M + X",
 #'                      dataset = my_data,
 #'                      my_prior = custom_priors)
 #' }

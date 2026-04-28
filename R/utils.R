@@ -34,11 +34,11 @@
 .prior_descriptions <- c(
   "a.coef"           = "Coefficient for the a effect.",
   "b.coef"           = "Coefficient for the b effect.",
-  "m.prec"           = "Precision for the mediators.",
-  "y.prec"           = "Precision for the outcome.",
-  "direct.coef"      = "Direct effect coefficient.",
-  "a.pip.hyperprior" = "Hyperprior for inclusion for the a effect.",
-  "b.pip.hyperprior" = "Hyperprior for inclusion for the b effect."
+  "m.prec"           = "Precision of the normal distribution for the mediators.",
+  "y.prec"           = "Precision of the normal distribution for the dependent variables.",
+  "direct.coef"      = "Coefficient for the direct effect.",
+  "a.pip.hyperprior" = "Hyperprior for the inclusion probability for the a effect.",
+  "b.pip.hyperprior" = "Hyperprior for the inclusion probability for the b effect."
 )
 
 # --- 3. Validation & Coercion -------------------------------------------------

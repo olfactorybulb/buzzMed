@@ -37,7 +37,6 @@
 #'
 #' @importFrom rjags jags.model coda.samples
 #' @importFrom stats update
-#' @seealso \code{\link{buzzEBMedAuto}}
 #' @keywords internal
 #'
 
