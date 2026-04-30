@@ -29,7 +29,7 @@ extract_results <- function(output, M) {
 
   # 3. Extraction & Column Naming
   # Extract joint inclusion probabilities and name them after the mediators
-  res_joint <- t(stats[joint_idx, 1, drop = FALSE])
+  res_joint <- t(stats[joint_idx, 1:4, drop = FALSE])
   colnames(res_joint) <- M
 
   # Initialize the final result with joint probabilities
@@ -37,16 +37,16 @@ extract_results <- function(output, M) {
 
   # 4. Append Hyperpriors if found
   if (length(a_hyper_idx) > 0) {
-    a_hyper <- t(stats[a_hyper_idx, 1, drop = FALSE])
+    a_hyper <- t(stats[a_hyper_idx, 1:4, drop = FALSE])
     colnames(a_hyper) <- "a.pip.hyperprior"
     res <- cbind(res, a_hyper)
   }
 
   if (length(b_hyper_idx) > 0) {
-    b_hyper <- t(stats[b_hyper_idx, 1, drop = FALSE])
+    b_hyper <- t(stats[b_hyper_idx, 1:4, drop = FALSE])
     colnames(b_hyper) <- "b.pip.hyperprior"
     res <- cbind(res, b_hyper)
   }
 
-  return(res)
+  return(t(res))
 }
