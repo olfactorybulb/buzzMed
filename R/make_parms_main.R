@@ -7,7 +7,7 @@
 #'
 #' @param m.prec.shape,m.prec.rate,y.prec.shape,y.prec.rate,a.coef.mean,a.coef.prec,b.coef.mean,b.coef.prec,a.pip.hyperalpha,a.pip.hyperbeta,b.pip.hyperalpha,b.pip.hyperbeta,direct.coef.mean,direct.coef.precision
 #' Numeric. Individual prior parameters (Method 1).
-#' @param my_prior A data frame provided by the user (Method 2).
+#' @param my_prior A data frame or list provided by the user (Method 2). Lists are automatically coerced to data frames.
 #' @param advanced Controls routing override behavior. Acceptable values:
 #'   \code{NULL} (default standard routing), \code{"interactive"} (CLI wizard),
 #'   \code{"myprior"} (use \code{my_prior} directly), or \code{FALSE} (force
@@ -64,6 +64,13 @@ make_parms_main <- function(
     my_prior = NULL,
     advanced = NULL
 ) {
+
+  # --- 0. Pre-process inputs --------------------------------------------------
+  # Convert my_prior to a dataframe if the user supplied a list
+  if (!is.null(my_prior) && is.list(my_prior) && !is.data.frame(my_prior)) {
+    my_prior <- as.data.frame(my_prior)
+  }
+
   # --- 1. Detect which methods are being invoked ------------------------------
   named_args_provided <- !all(sapply(list(
     m.prec.shape, m.prec.rate,

@@ -26,7 +26,7 @@ make_parms_main(
 \arguments{
 \item{m.prec.shape, m.prec.rate, y.prec.shape, y.prec.rate, a.coef.mean, a.coef.prec, b.coef.mean, b.coef.prec, a.pip.hyperalpha, a.pip.hyperbeta, b.pip.hyperalpha, b.pip.hyperbeta, direct.coef.mean, direct.coef.precision}{Numeric. Individual prior parameters (Method 1).}
 
-\item{my_prior}{A data frame provided by the user (Method 2).}
+\item{my_prior}{A data frame or list provided by the user (Method 2). Lists are automatically coerced to data frames.}
 
 \item{advanced}{Controls routing override behavior. Acceptable values:
 \code{NULL} (default standard routing), \code{"interactive"} (CLI wizard),
