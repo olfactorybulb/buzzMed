@@ -78,7 +78,7 @@
 #' )
 #'
 #' # Fit the model
-#' results <- buzzEBMcatYcat(
+#' results <- buzzEBMcatMcatY(
 #'    model    = "Y ~ M1 + M2 + X",
 #'    dataset  = toy_data,
 #'    n_burnin = 200,
@@ -91,7 +91,7 @@
 #' @export
 
 
-buzzEBMcatYcat <- function(
+buzzEBMcatMcatY <- function(
     model,
     dataset,
     my_prior = NULL, advanced = NULL,

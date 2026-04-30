@@ -28,7 +28,7 @@
 #'   and \code{b.pip.hyperprior}) govern the inclusion of each path.
 #' }
 #'
-#' @seealso \code{\link{buzzEBMcatYcat}}, \code{\link{define_init_values}}
+#' @seealso \code{\link{buzzEBMcatMcatY}}, \code{\link{define_init_values}}
 #'
 #' @keywords internal
 

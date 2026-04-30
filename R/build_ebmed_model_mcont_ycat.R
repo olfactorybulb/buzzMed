@@ -28,7 +28,7 @@
 #'   formulation as the outcome is binary.
 #' }
 #'
-#' @seealso \code{\link{buzzEBMcontYcat}}, \code{\link{define_init_values}}
+#' @seealso \code{\link{buzzEBMcontMcatY}}, \code{\link{define_init_values}}
 #'
 #' @keywords internal
 

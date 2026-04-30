@@ -88,7 +88,7 @@ make_parms_from_argument <- function(
     vals <- lapply(seq_along(vals), function(i) {
       if (is.null(vals[[i]])) {
         warning(sprintf(
-          "Prior '%s': '%s' was not provided — using default value of %s.",
+          "Prior '%s': '%s' was not provided - using default value of %s.",
           prior_name, param_names[i], defaults[i]
         ))
         defaults[i]

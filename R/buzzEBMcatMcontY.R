@@ -77,7 +77,7 @@
 #' )
 #'
 #' # Fit the model
-#' results <- buzzEBMcatYcont(
+#' results <- buzzEBMcatMcontY(
 #'    model    = "Y ~ M1 + M2 + X",
 #'    dataset  = toy_data,
 #'    n_burnin = 200,
@@ -90,7 +90,7 @@
 #' @export
 
 
-buzzEBMcatYcont <- function(
+buzzEBMcatMcontY <- function(
     model,
     dataset,
     my_prior = NULL, advanced = NULL,

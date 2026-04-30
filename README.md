@@ -37,10 +37,10 @@ library(buzzMed)
 ## Main Functions
 The package provides a primary automated interface and four specialized model-fitting functions based on variable types:
 - buzzEBMedAuto(): Automatically dispatches to the appropriate model based on mediator and outcome types detected in the dataset.
-- buzzEBMcontYcont(): Continuous mediators, continuous outcome.
-- buzzEBMcontYcat(): Continuous mediators, binary outcome.
-- buzzEBMcatYcont(): Binary mediators, continuous outcome.
-- buzzEBMcatYcat(): Binary mediators, binary outcome.
+- buzzEBMcontMcontY(): Continuous mediators, continuous outcome.
+- buzzEBMcontMcatY(): Continuous mediators, binary outcome.
+- buzzEBMcatMcontY(): Binary mediators, continuous outcome.
+- buzzEBMcatMcatY(): Binary mediators, binary outcome.
 
 ---
 

@@ -1,9 +1,9 @@
 # buzzMed 0.1.2
 * **Function Renaming**: Updated core fitting functions for better clarity on data types:
-  * `buzzEBMcat`   -> `buzzEBMcatYcont`
-  * `buzzMYcat`  -> `buzzEBMcatYcat`
-  * `buzzMYcont` -> `buzzEBMcontYcont`
-  * `buzzYcat`   -> `buzzEBMcontYcat`
+  * `buzzEBMcat`   -> `buzzEBMcatMcontY`
+  * `buzzMYcat`  -> `buzzEBMcatMcatY`
+  * `buzzMYcont` -> `buzzEBMcontMcontY`
+  * `buzzYcat`   -> `buzzEBMcontMcatY`
 * **Custom Prior Support**: Users can now manually define prior distributions.
   * Added `make_parms_main()` as a internal central router for parameter handling.
   * Added `make_parms_from_argument()` and `make_parms_from_df()` for flexible input methods.

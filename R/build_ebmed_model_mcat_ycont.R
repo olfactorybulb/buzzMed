@@ -29,7 +29,7 @@
 #'   formulation as the mediators are binary.
 #' }
 #'
-#' @seealso \code{\link{buzzEBMcatYcont}}, \code{\link{define_init_values}}
+#' @seealso \code{\link{buzzEBMcatMcontY}}, \code{\link{define_init_values}}
 #'
 #' @keywords internal
 

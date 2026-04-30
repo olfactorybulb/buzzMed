@@ -40,6 +40,6 @@ The model uses a mixed-likelihood approach:
 }
 }
 \seealso{
-\code{\link{buzzEBMcontYcat}}, \code{\link{define_init_values}}
+\code{\link{buzzEBMcontMcatY}}, \code{\link{define_init_values}}
 }
 \keyword{internal}

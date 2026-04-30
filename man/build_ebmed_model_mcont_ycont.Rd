@@ -47,6 +47,6 @@ as \code{ind.joint <- a.pip * b.pip}.
 }
 \seealso{
 \code{\link{prepare_ebmed_data}}, \code{\link{define_init_values}},
-\code{\link{buzzEBMcontYcont}}
+\code{\link{buzzEBMcontMcontY}}
 }
 \keyword{internal}

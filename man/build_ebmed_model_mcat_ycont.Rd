@@ -41,6 +41,6 @@ The model structure for binary mediators:
 }
 }
 \seealso{
-\code{\link{buzzEBMcatYcont}}, \code{\link{define_init_values}}
+\code{\link{buzzEBMcatMcontY}}, \code{\link{define_init_values}}
 }
 \keyword{internal}

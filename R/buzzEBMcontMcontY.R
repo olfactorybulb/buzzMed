@@ -1,14 +1,12 @@
-#' Fit Bayesian Mediation Model (Continuous M & Binary Y)
+#' Fit Bayesian Mediation Model (Continuous M & Continuous Y)
 #'
-#' Fits a Bayesian mediation model specifically designed for cases where
-#' the mediators (\eqn{M}) are continuous and the outcome variable (\eqn{Y})
-#' is binary (0/1).
+#' Fits a Bayesian mediation model specifically designed for cases where both
+#' the mediators (\eqn{M}) and the outcome variable (\eqn{Y}) are continuous.
 #'
 #' @description
-#' This function implements variable selection for mediators in a mixed
-#' data framework. It assumes a Gaussian likelihood for the mediators and
-#' a latent probit link for the binary outcome. It automates data preparation,
-#' JAGS model construction, and MCMC sampling.
+#' This function implements variable selection for mediators in a fully
+#' continuous framework. It automates data preparation, JAGS model
+#' construction using Gaussian likelihoods, and MCMC sampling.
 #'
 #' @param model A description of the model to be fitted. This is typically a
 #' formula or a character string using \code{lavaan} syntax (e.g., \code{Y ~ M + X}).
@@ -23,6 +21,9 @@
 #' the number of mediators. Shape and rate parameters of the Gamma hyperprior
 #' for the mediator residual precisions. By default, a Gamma distribution is
 #' used. The default values are 1 and 0.001, respectively.
+#' @param y.prec.shape,y.prec.rate Numeric scalar. Shape and rate parameters
+#' of the Gamma hyperprior for the outcome residual precision. By default, a
+#' Gamma distribution is used. The default values are 1 and 0.001, respectively.
 #' @param a.coef.mean,a.coef.prec Numeric scalar or vector.
 #' Mean and precision parameters of the Normal prior for the \eqn{a} path effects.
 #' By default, a Normal distribution is used. The default values are 0 and 1.0E-6,
@@ -53,9 +54,8 @@
 #'
 #' @details
 #' This function is a specific "worker" function. It identifies \eqn{X, M, Y}
-#' via \code{.parse_buzz_syntax}. While \eqn{M} is modeled with residual
-#' precision parameters, \eqn{Y} is binary and thus its residual precision
-#' is fixed to 1 within the latent variable framework.
+#' via \code{.parse_buzz_syntax} and performs Bayesian estimation assuming:
+#' \eqn{M \sim Normal(\dots)} and \eqn{Y \sim Normal(\dots)}.
 #'
 #' @references
 #' Shi, D., Shi, D., & Fairchild, A. J. (2023). Variable Selection for Mediators
@@ -67,41 +67,47 @@
 #'
 #' @examples
 #' \dontrun{
-#' # Mixed case: Continuous M, Binary Y
-#' set.seed(456)
+#' # 1. Create a continuous synthetic dataset
+#' set.seed(123)
 #' n <- 100
 #' toy_data <- data.frame(
 #'    X = rnorm(n),
 #'    M1 = rnorm(n),
 #'    M2 = rnorm(n),
-#'    Y = rbinom(n, 1, 0.5)
+#'    Y = rnorm(n)
 #' )
 #'
-#' # Fit the model
-#' results <- buzzEBMcontYcat(
+#' # 2. Fit the model using lavaan-style syntax
+#' # We define Y as the outcome, with M1, M2, and X as predictors
+#' results <- buzzEBMcontMcontY(
 #'    model    = "Y ~ M1 + M2 + X",
 #'    dataset  = toy_data,
-#'    n_burnin = 200,
-#'    n_iter   = 1000
+#'    n_burnin = 500,
+#'    n_iter   = 2000,
+#'    n_chains = 2
 #' )
 #'
+#' # 3. Check results
 #' summary(results)
+#' plot(results)
 #' }
 #'
 #' @export
 
 
-buzzEBMcontYcat <- function(
+buzzEBMcontMcontY <- function(
     model,
     dataset,
     my_prior = NULL, advanced = NULL,
     m.prec.shape = NULL, m.prec.rate = NULL,
+    y.prec.shape = NULL, y.prec.rate = NULL,
     a.coef.mean = NULL, a.coef.prec = NULL,
     b.coef.mean = NULL, b.coef.prec = NULL,
     a.pip.hyperalpha = NULL, a.pip.hyperbeta = NULL,
     b.pip.hyperalpha = NULL, b.pip.hyperbeta = NULL,
     direct.coef.mean = NULL, direct.coef.precision = NULL,
     m.prec.init = NULL,
+    y.prec.init = NULL,
     direct.coef.init = NULL,
     a.pip.hyperprior.init = NULL,
     b.pip.hyperprior.init = NULL,
@@ -110,9 +116,8 @@ buzzEBMcontYcat <- function(
     n_burnin = NULL,
     n_iter = NULL,
     thin = NULL
-)  {
-
-  # Parse Model
+){
+  # Parse model
   vars <- .parse_buzz_syntax(model, dataset)
   X <- vars$X
   Y <- vars$Y
@@ -122,7 +127,7 @@ buzzEBMcontYcat <- function(
   P <- length(X)
   K <- length(M)
 
-  Y_cont <- FALSE
+  Y_cont <- TRUE
   M_cont <- TRUE
 
   ## 1. prepare data and set up the prior data frame
@@ -131,6 +136,8 @@ buzzEBMcontYcat <- function(
   parms <- make_parms_main(
     m.prec.shape = m.prec.shape,
     m.prec.rate  = m.prec.rate,
+    y.prec.shape = y.prec.shape,
+    y.prec.rate  = y.prec.rate,
     a.coef.mean = a.coef.mean,
     a.coef.prec  = a.coef.prec,
     b.coef.mean = b.coef.mean,
@@ -141,12 +148,12 @@ buzzEBMcontYcat <- function(
     b.pip.hyperbeta  = b.pip.hyperbeta,
     direct.coef.mean = direct.coef.mean,
     direct.coef.precision = direct.coef.precision,
-    my_prior  = my_prior,
+    my_prior = my_prior,
     advanced = advanced
-  )
+    )
 
   ## 2. build model
-  modelstring <- build_ebmed_model_mcont_ycat(P, K, parms)
+  modelstring <- build_ebmed_model_mcont_ycont(P, K, parms)
 
   ## 3. initial values
   init <- define_init_values(P,
@@ -154,7 +161,7 @@ buzzEBMcontYcat <- function(
                              M_cont,
                              Y_cont,
                              m.prec.init = m.prec.init,
-                             y.prec.init = NULL,
+                             y.prec.init = y.prec.init,
                              direct.coef.init = direct.coef.init,
                              a.pip.hyperprior.init = a.pip.hyperprior.init,
                              b.pip.hyperprior.init = b.pip.hyperprior.init)

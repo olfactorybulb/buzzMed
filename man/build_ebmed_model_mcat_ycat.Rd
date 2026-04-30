@@ -40,6 +40,6 @@ The model structure for dual-binary data:
 }
 }
 \seealso{
-\code{\link{buzzEBMcatYcat}}, \code{\link{define_init_values}}
+\code{\link{buzzEBMcatMcatY}}, \code{\link{define_init_values}}
 }
 \keyword{internal}
