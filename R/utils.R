@@ -160,6 +160,11 @@
     stop("Input error: One argument must be a character string (model) and the other a data.frame.")
   }
 
+  # --- NEW: Structural Syntax Check ---
+  if (!grepl("~", model) || !grepl("\\|", model)) {
+    stop("Invalid model syntax. Use: 'Y ~ M1 + M2 | X'")
+  }
+
   # 2. Split by the pipe '|'
   parts <- unlist(strsplit(model, "\\|"))
   if (length(parts) != 2) {

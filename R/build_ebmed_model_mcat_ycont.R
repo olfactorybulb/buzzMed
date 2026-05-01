@@ -38,8 +38,8 @@ build_ebmed_model_mcat_ycont <- function(P, K, parms) {
   #Set up prior strings
   prior_strings <- mapply(function(p, d, a, t) {
     sprintf(t, p, d, a)
-  }, parms$prior, parms$distribution, parms$arguments, parms$template)
-  names(prior_strings) <- parms$prior
+  }, parms$priors, parms$distribution, parms$arguments, parms$template)
+  names(prior_strings) <- parms$priors
 
   # Create a and b effect blocks
   a_effect_string <- ""

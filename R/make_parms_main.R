@@ -21,7 +21,7 @@
 #'       \item Bypasses \code{my_prior} and the wizard entirely.
 #'       \item If named arguments are provided, calls \code{make_parms_from_argument}.
 #'       \item If no named arguments are provided, falls back to system defaults.
-#'       \item \emph{Note:} \code{my_prior} is ignored with a warning.
+#'       \item \emph{Note:} \code{my_prior} is ignored with a message.
 #'     }
 #'   \item \strong{Interactive Wizard (Trigger: \code{advanced = "interactive"})}
 #'     \itemize{
@@ -29,19 +29,19 @@
 #'       \item If the user completes the wizard, the result is passed to
 #'             \code{make_parms_from_df}.
 #'       \item If the user cancels, it falls back to system defaults.
-#'       \item \emph{Note:} All other arguments are ignored with a warning.
+#'       \item \emph{Note:} All other arguments are ignored with a message.
 #'     }
 #'   \item \strong{Use my_prior Directly (Trigger: \code{advanced = "myprior"})}
 #'     \itemize{
 #'       \item Requires \code{my_prior} to be non-NULL; errors otherwise.
 #'       \item Passes \code{my_prior} directly to \code{make_parms_from_df}.
-#'       \item \emph{Note:} Named arguments are ignored with a warning.
+#'       \item \emph{Note:} Named arguments are ignored with a message.
 #'     }
 #'   \item \strong{Standard Routing (Trigger: \code{advanced = NULL})}
 #'     \itemize{
 #'       \item \strong{User Dataframe:} if \code{my_prior} is not NULL, validates
 #'             and passes it to \code{make_parms_from_df}. Named arguments are
-#'             ignored with a warning.
+#'             ignored with a message.
 #'       \item \strong{Named Arguments:} if any Method 1 arg is not NULL, compiles
 #'             them and calls \code{make_parms_from_argument}.
 #'       \item \strong{System Defaults:} silent fallback if nothing else is provided.
@@ -123,10 +123,10 @@ make_parms_main <- function(
   # High Priority: Interactive Wizard
   if (!is.null(advanced) && advanced == "interactive") {
     if (named_args_provided) {
-      warning("Named arguments are ignored when advanced = 'interactive'.")
+      message("Named arguments are ignored when advanced = 'interactive'.")
     }
     if (!is.null(my_prior)) {
-      warning("'my_prior' is ignored when advanced = 'interactive'.")
+      message("'my_prior' is ignored when advanced = 'interactive'.")
     }
 
     my_prior_wizard <- run_parms_wizard()
@@ -140,7 +140,7 @@ make_parms_main <- function(
   # High Priority: Use my_prior Dataframe Directly
   if (!is.null(advanced) && advanced == "myprior") {
     if (named_args_provided) {
-      warning("Named arguments are ignored when advanced = 'myprior'.")
+      message("Named arguments are ignored when advanced = 'myprior'.")
     }
     if (is.null(my_prior)) {
       stop(

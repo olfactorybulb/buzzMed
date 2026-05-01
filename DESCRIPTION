@@ -13,7 +13,7 @@ Description: A collection of quantitative tools for selecting mediating
     accommodates both continuous and dichotomous outcomes, including
     the dependent variables and the mediators for identifying and
     analyzing mediation pathways.
-License: GPL (>= 3)
+License: GPL (>= 3) + file LICENSE
 Depends:
     R (>= 4.0.0)
 Imports:
