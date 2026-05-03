@@ -18,7 +18,7 @@
 #'   \item \strong{Missing Priors:} Any required priors missing from the user's
 #'   data frame are filled using system defaults, and a warning is issued.
 #'   \item \strong{Immutable Templates:} The \code{template} column is always
-#'   sourced from \code{\link{.make_default_parms}} and cannot be overridden,
+#'   sourced from \code{.make_default_parms} and cannot be overridden,
 #'   ensuring the JAGS model structure remains valid.
 #'   \item \strong{Argument Validation:} Arguments are split, coerced to
 #'   numeric (except for \eqn{a.coef} and \eqn{b.coef} hyperprior references),
@@ -30,6 +30,7 @@
 #'
 #' @seealso \code{\link{make_parms_main}}, \code{\link{run_parms_wizard}}
 #' @keywords internal
+#'
 make_parms_from_df <- function(my_prior) {
   parms <- .make_default_parms()
 

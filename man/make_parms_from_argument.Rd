@@ -64,6 +64,6 @@ individual named arguments. It performs several key tasks:
 }
 }
 \seealso{
-\code{\link{make_parms_main}}, \code{\link{.make_default_parms}}
+\code{\link{make_parms_main}}
 }
 \keyword{internal}

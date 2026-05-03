@@ -18,7 +18,6 @@
 #' @param advanced Character. Use \code{"interactive"} for an interactive wizard
 #' to choose parameter distributions, or leave \code{NULL} for defaults.
 #'
-#' @section Hyperparameters (Manual Overrides):
 #' @param y.prec.shape,y.prec.rate Numeric scalar. Shape and rate parameters
 #' of the Gamma hyperprior for the outcome residual precision. By default, a
 #' Gamma distribution is used. The default values are 1 and 0.001, respectively.
@@ -41,7 +40,13 @@
 #' (\eqn{c'}). By default, a Normal distribution is used. The default values
 #' are 0 and 1.0E-6, respectively.
 #'
-#' @section MCMC Settings:
+#' @param y.prec.init Numeric or \code{NULL}. Initial values for
+#' residual precisions. Default is 1.
+#' @param direct.coef.init Numeric or \code{NULL}. Initial value for the direct
+#' effect (\eqn{c'}). Default is 0.
+#' @param a.pip.hyperprior.init,b.pip.hyperprior.init Numeric or \code{NULL}.
+#' Initial inclusion probabilities (PIP). Default is 0.5.
+#'
 #' @param n_chains Integer. Number of MCMC chains.
 #' @param n_adapt Integer. Number of adaptation iterations.
 #' @param n_burnin Integer. Number of burn-in iterations.

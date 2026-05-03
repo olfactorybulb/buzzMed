@@ -33,7 +33,7 @@
 #' @return A \code{data.frame} containing columns: \code{priors},
 #' \code{distribution}, \code{arguments}, and \code{template}.
 #'
-#' @seealso \code{\link{make_parms_main}}, \code{\link{.make_default_parms}}
+#' @seealso \code{\link{make_parms_main}}
 #' @keywords internal
 
 make_parms_from_argument <- function(

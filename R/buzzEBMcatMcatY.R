@@ -21,7 +21,6 @@
 #' @param advanced Character. Use \code{"interactive"} for an interactive wizard
 #' to choose parameter distributions, or leave \code{NULL} for defaults.
 #'
-#' @section Hyperparameters (Manual Overrides):
 #' @param a.coef.mean,a.coef.prec Numeric scalar or vector.
 #' Mean and precision parameters of the Normal prior for the \eqn{a} path effects.
 #' By default, a Normal distribution is used. The default values are 0 and 1.0E-6,
@@ -41,7 +40,11 @@
 #' (\eqn{c'}). By default, a Normal distribution is used. The default values
 #' are 0 and 1.0E-6, respectively.
 #'
-#' @section MCMC Settings:
+#' @param direct.coef.init Numeric or \code{NULL}. Initial value for the direct
+#' effect (\eqn{c'}). Default is 0.
+#' @param a.pip.hyperprior.init,b.pip.hyperprior.init Numeric or \code{NULL}.
+#' Initial inclusion probabilities (PIP). Default is 0.5.
+#'
 #' @param n_chains Integer. Number of MCMC chains.
 #' @param n_adapt Integer. Number of adaptation iterations.
 #' @param n_burnin Integer. Number of burn-in iterations.

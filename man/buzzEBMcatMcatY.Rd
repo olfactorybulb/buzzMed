@@ -64,6 +64,12 @@ Mean and precision parameters for the Normal prior of the direct effects
 (\eqn{c'}). By default, a Normal distribution is used. The default values
 are 0 and 1.0E-6, respectively.}
 
+\item{direct.coef.init}{Numeric or \code{NULL}. Initial value for the direct
+effect (\eqn{c'}). Default is 0.}
+
+\item{a.pip.hyperprior.init, b.pip.hyperprior.init}{Numeric or \code{NULL}.
+Initial inclusion probabilities (PIP). Default is 0.5.}
+
 \item{n_chains}{Integer. Number of MCMC chains.}
 
 \item{n_adapt}{Integer. Number of adaptation iterations.}
@@ -99,14 +105,6 @@ This function is strictly for binary data. For variables with more than
 two levels, please pre-process them into dummy variables or ensure they
 are binary before running.
 }
-\section{Hyperparameters (Manual Overrides)}{
-
-}
-
-\section{MCMC Settings}{
-
-}
-
 \examples{
 \dontrun{
 # Binary case: Both M and Y are Binary

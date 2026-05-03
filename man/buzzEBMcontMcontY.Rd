@@ -79,6 +79,15 @@ Mean and precision parameters for the Normal prior of the direct effects
 (\eqn{c'}). By default, a Normal distribution is used. The default values
 are 0 and 1.0E-6, respectively.}
 
+\item{m.prec.init, y.prec.init}{Numeric or \code{NULL}. Initial values for
+residual precisions. Default is 1.}
+
+\item{direct.coef.init}{Numeric or \code{NULL}. Initial value for the direct
+effect (\eqn{c'}). Default is 0.}
+
+\item{a.pip.hyperprior.init, b.pip.hyperprior.init}{Numeric or \code{NULL}.
+Initial inclusion probabilities (PIP). Default is 0.5.}
+
 \item{n_chains}{Integer. Number of MCMC chains.}
 
 \item{n_adapt}{Integer. Number of adaptation iterations.}
@@ -106,14 +115,6 @@ This function is a specific "worker" function. It identifies \eqn{X, M, Y}
 via \code{.parse_buzz_syntax} and performs Bayesian estimation assuming:
 \eqn{M \sim Normal(\dots)} and \eqn{Y \sim Normal(\dots)}.
 }
-\section{Hyperparameters (Manual Overrides)}{
-
-}
-
-\section{MCMC Settings}{
-
-}
-
 \examples{
 \dontrun{
 # 1. Create a continuous synthetic dataset
