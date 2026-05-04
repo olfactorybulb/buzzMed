@@ -36,17 +36,14 @@ library(buzzMed)
 
 ## Main Functions
 The package provides a primary automated interface and four specialized model-fitting functions based on variable types:
-- buzzEBMcontMcontY(): Continuous mediators, continuous outcome.
-- buzzEBMcontMcatY(): Continuous mediators, binary outcome.
-- buzzEBMcatMcontY(): Binary mediators, continuous outcome.
-- buzzEBMcatMcatY(): Binary mediators, binary outcome.
+- `buzzEBMcontMcontY()`: Continuous mediators, continuous outcome.
+- `buzzEBMcontMcatY()`: Continuous mediators, binary outcome.
+- `buzzEBMcatMcontY()`: Binary mediators, continuous outcome.
+- `buzzEBMcatMcatY()`: Binary mediators, binary outcome.
 
 ---
 
 ## Example Usage
-1. Automatic Model Selection
-The most efficient way to run a model is using the lavaan-style formula syntax.
-
 ```r
 library(buzzMed)
 

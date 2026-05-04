@@ -102,7 +102,7 @@ and routes the data through an internal pipeline including
 }
 \note{
 This function is strictly for binary data. For variables with more than
-two levels, please pre-process them into dummy variables or ensure they
+two levels, please convert them into dummy variables or ensure they
 are binary before running.
 }
 \examples{
@@ -135,10 +135,3 @@ under a Bayesian Mediation Model. \emph{Structural Equation Modeling: A
 Multidisciplinary Journal}, 30(6), 887–900.
 \doi{10.1080/10705511.2022.2164285}
 }
-\seealso{
-Other buzzEBMed_fitters: 
-\code{\link{buzzEBMcatMcontY}()},
-\code{\link{buzzEBMcontMcatY}()},
-\code{\link{buzzEBMcontMcontY}()}
-}
-\concept{buzzEBMed_fitters}

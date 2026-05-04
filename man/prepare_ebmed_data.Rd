@@ -2,7 +2,7 @@
 % Please edit documentation in R/prepare_ebmed_data.R
 \name{prepare_ebmed_data}
 \alias{prepare_ebmed_data}
-\title{Prepare Data for buzzEMed JAGS Model}
+\title{Prepare Data for buzzMed Model}
 \usage{
 prepare_ebmed_data(dataset, X, M, Y, M_cont, Y_cont)
 }

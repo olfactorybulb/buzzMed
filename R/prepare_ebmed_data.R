@@ -1,4 +1,4 @@
-#' Prepare Data for buzzEMed JAGS Model
+#' Prepare Data for buzzMed Model
 #'
 #' Converts a user-supplied data frame into the specific list format required
 #' by the Bayesian mediation JAGS models.

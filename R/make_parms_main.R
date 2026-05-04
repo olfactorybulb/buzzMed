@@ -42,7 +42,7 @@
 #'       \item \strong{User Dataframe:} if \code{my_prior} is not NULL, validates
 #'             and passes it to \code{make_parms_from_df}. Named arguments are
 #'             ignored with a message.
-#'       \item \strong{Named Arguments:} if any Method 1 arg is not NULL, compiles
+#'       \item \strong{Named Arguments:} if any Method 1 argument is not NULL, compiles
 #'             them and calls \code{make_parms_from_argument}.
 #'       \item \strong{System Defaults:} silent fallback if nothing else is provided.
 #'     }

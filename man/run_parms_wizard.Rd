@@ -32,7 +32,7 @@ The wizard handles two main types of customization:
 
 For coefficients like \eqn{a} and \eqn{b}, the wizard will note if they
 reference hyperpriors (back-references). It is generally recommended to
-modify the hyperprior's shape rather than the coefficient's distribution
+modify the shape of the hyperprior rather than the coefficient's distribution
 directly to maintain the hierarchical structure.
 }
 \note{

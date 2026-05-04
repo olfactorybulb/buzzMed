@@ -140,10 +140,3 @@ under a Bayesian Mediation Model. \emph{Structural Equation Modeling: A
 Multidisciplinary Journal}, 30(6), 887–900.
 \doi{10.1080/10705511.2022.2164285}
 }
-\seealso{
-Other buzzEBMed_fitters: 
-\code{\link{buzzEBMcatMcatY}()},
-\code{\link{buzzEBMcontMcatY}()},
-\code{\link{buzzEBMcontMcontY}()}
-}
-\concept{buzzEBMed_fitters}

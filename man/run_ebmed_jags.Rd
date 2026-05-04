@@ -2,7 +2,7 @@
 % Please edit documentation in R/run_ebmed_jags.R
 \name{run_ebmed_jags}
 \alias{run_ebmed_jags}
-\title{Execute JAGS MCMC Sampling for EBMed Models}
+\title{Execute JAGS MCMC Sampling for Exploratory Bayesian Mediation Models}
 \usage{
 run_ebmed_jags(
   modelstring,

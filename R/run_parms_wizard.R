@@ -51,7 +51,7 @@
 #'
 #' For coefficients like \eqn{a} and \eqn{b}, the wizard will note if they
 #' reference hyperpriors (back-references). It is generally recommended to
-#' modify the hyperprior's shape rather than the coefficient's distribution
+#' modify the shape of the hyperprior rather than the coefficient's distribution
 #' directly to maintain the hierarchical structure.
 #'
 #' @return A \code{data.frame} with columns \code{priors}, \code{distribution},

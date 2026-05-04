@@ -1,4 +1,4 @@
-#' Execute JAGS MCMC Sampling for EBMed Models
+#' Execute JAGS MCMC Sampling for Exploratory Bayesian Mediation Models
 #'
 #' This internal function interfaces with the \code{rjags} package to initialize
 #' the model, perform burn-in, and collect posterior samples.

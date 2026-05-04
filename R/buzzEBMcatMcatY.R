@@ -10,7 +10,7 @@
 #' data preparation, JAGS model construction, and MCMC sampling.
 #'
 #' @note This function is strictly for binary data. For variables with more than
-#' two levels, please pre-process them into dummy variables or ensure they
+#' two levels, please convert them into dummy variables or ensure they
 #' are binary before running.
 #'
 #' @param model A description of the model to be fitted. This is typically a
@@ -66,7 +66,6 @@
 #' Multidisciplinary Journal}, 30(6), 887–900.
 #' \doi{10.1080/10705511.2022.2164285}
 #'
-#' @family buzzEBMed_fitters
 #'
 #' @examples
 #' \dontrun{
