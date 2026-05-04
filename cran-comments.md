@@ -1,18 +1,22 @@
 ## Resubmission
-This(buzzMed 0.1.2) is a resubmission of buzzMed 0.1.1. This update fixes WARNINGS generated from incoming automated checks.
+This is a resubmission of `buzzMed`. The previous submission, `buzzMed 0.1.1`, was withdrawn to address documentation and dependency issues.
 
 ## Test environments
-* Local macOS (aarch64): R 4.4.2
-* Windows Server (via win-builder): R-devel (2026-02-18 r89435 ucrt)
+* Local: macOS Sequoia 15.6.1 (aarch64), R 4.4.2
+* Windows Server (win-builder): R-devel (2026-05-03 r89994 ucrt)
+* Linux (R-hub): Ubuntu Linux 24.04.4 LTS, R-release (4.6.0)
 
 ## R CMD check results
 0 errors | 0 warnings | 1 note
-* The note is regarding the unable to verify current time (local environment artifact).
+* NOTE: `unable to verify current time.`
+This was observed on both local and win-builder environments. This is a transient system clock synchronization issue on the build servers and does not affect package functionality.
 
 ## Fixes
-* Added @examples to exported functions to exercise the code.
-* Added a unit testing suite using 'testthat' to verify function outputs.
-* Updated .Rbuildignore to exclude the .github directory.
-* Added a WORDLIST to handle the 'buzzMed' spelling note.
-* Updated the functions names (ex: `buzzMYcat` to `buzzEBMcatMcatY`) to improve clarity.
-* Provided references in the function descriptions.
+* **Testing:** Implemented a formal unit testing suite using the `testthat` framework.
+* **Function Renaming:** Updated naming convention (e.g., from `buzzMYcat` to `buzzEBMcatMcatY`) to improve consistency across the package and better reflect the model structures.
+* **Code Coverage:** Added `@examples` to all exported functions to demonstrate usage and ensure code paths are exercised during checks.
+* **Extended Prior Customization:** Added support for user-defined prior distributions via new internal parameter-handling logic and flexible input methods.
+* **Interactive Tooling:** Introduced `run_parms_wizard()`, a command-line interface to assist users in interactively configuring prior data frames.
+* **Documentation:** Updated function descriptions with comprehensive literature references.
+* **Addressed Reviewer Feedback:** Removed redundant introductory phrasing ("The buzzMed package offers...") from the Description field.
+  * Added methodological references in the requested `Authors (Year) <doi:...>` format to the documentation of all core exported functions to provide context where the specific methods are implemented.
