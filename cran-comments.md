@@ -1,5 +1,5 @@
 ## Resubmission
-This is a resubmission of buzzMed 0.1.1. This update fixes WARNINGS generated from incoming automated checks.
+This(buzzMed 0.1.2) is a resubmission of buzzMed 0.1.1. This update fixes WARNINGS generated from incoming automated checks.
 
 ## Test environments
 * Local macOS (aarch64): R 4.4.2
@@ -14,3 +14,5 @@ This is a resubmission of buzzMed 0.1.1. This update fixes WARNINGS generated fr
 * Added a unit testing suite using 'testthat' to verify function outputs.
 * Updated .Rbuildignore to exclude the .github directory.
 * Added a WORDLIST to handle the 'buzzMed' spelling note.
+* Updated the functions names (ex: `buzzMYcat` to `buzzEBMcatMcatY`) to improve clarity.
+* Provided references in the function descriptions.

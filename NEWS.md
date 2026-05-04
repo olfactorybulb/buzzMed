@@ -10,7 +10,8 @@
 * **Interactive Features**:
   * Added `run_parms_wizard()`, a CLI tool to guide users through creating prior dataframes interactively.
 * **Internal Improvements**:
-  * Introduced `utils.R` to house smaller internal helper functions.
+  * Introduced `helpers.R` to house smaller internal helper functions.
+  * Introduced `extract_results.R` that extracts the summary of the output to increase result readibility.
 ---
 
 # buzzMed 0.1.1
