@@ -37,6 +37,7 @@
 #'
 #' @importFrom rjags jags.model coda.samples
 #' @importFrom stats update
+#' @importFrom coda as.mcmc.list
 #' @keywords internal
 #'
 

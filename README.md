@@ -36,7 +36,6 @@ library(buzzMed)
 
 ## Main Functions
 The package provides a primary automated interface and four specialized model-fitting functions based on variable types:
-- buzzEBMedAuto(): Automatically dispatches to the appropriate model based on mediator and outcome types detected in the dataset.
 - buzzEBMcontMcontY(): Continuous mediators, continuous outcome.
 - buzzEBMcontMcatY(): Continuous mediators, binary outcome.
 - buzzEBMcatMcontY(): Binary mediators, continuous outcome.
@@ -51,18 +50,19 @@ The most efficient way to run a model is using the lavaan-style formula syntax.
 ```r
 library(buzzMed)
 
-# Specify your mediation model using lavaan-style syntax
-# M1 and M2 are mediators; X is the predictor; Y is the outcome
-model_string <- "
-  M1 + M2 ~ X
-  Y ~ M1 + M2 + X
-"
+# Create some toy data to play with
+my_data <- data.frame(
+    MyPredictor = rnorm(30),
+    MyMediator1 = rnorm(30),
+    MyMediator2 = rnorm(30),
+    MyOutcome = rnorm(30)
+)
 
-# Run the automated model
-fit <- buzzEBMedAuto(model = model_string, dataset = my_data)
+# Specify your mediation model using syntax 'Y ~ M1 + M2 | X'
+model_string <- "MyOutcome ~ MyMediator1 + MyMediator2 | MyPredictor"
 
-# Summary of posterior samples
-summary(fit)
+# Run the model with continuous mediator and continuous outcome
+fit <- buzzEBMcontMcontY(model = model_string, dataset = my_data)
 ```
 
 ---

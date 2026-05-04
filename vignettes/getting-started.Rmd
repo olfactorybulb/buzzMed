@@ -13,7 +13,43 @@ knitr::opts_chunk$set(
   comment = "#>"
 )
 ```
+## Introduction
+
+`buzzMed` is a collection of quantitative tools for selecting mediating effects within exploratory Bayesian mediation models. The package accommodates both continuous and dichotomous outcomes, including the dependent variables and the mediators for identifying and analyzing mediation pathways.
+
+## Basic Usage
+
+First, load the package:
 
 ```{r setup}
 library(buzzMed)
 ```
+
+To run a basic mediation model, use one of the `buzzEBM` functions depending on
+your data types (continuous or categorical):
+
+```{r example, eval = FALSE}
+library(buzzMed)
+
+# Create some toy data to play with
+my_data <- data.frame(
+    MyPredictor = rnorm(30),
+    MyMediator1 = rnorm(30),
+    MyMediator2 = rnorm(30),
+    MyOutcome = rnorm(30)
+)
+
+# Specify your mediation model using syntax 'Y ~ M1 + M2 | X'
+model_string <- "MyOutcome ~ MyMediator1 + MyMediator2 | MyPredictor"
+
+# Run the model with continuous mediator and continuous outcome
+fit <- buzzEBMcontMcontY(model = model_string, dataset = my_data)
+```
+
+## More Information
+
+For detailed theory on the Bayesian mediation selection process, please refer to
+the package documentation for the specific `buzzEBM` functions.
+
+## References
+> Shi, D., Dexin Shi, & Amanda J. Fairchild (2023). Variable Selection for Mediators under a Bayesian Mediation Model. Structural Equation Modeling: A Multidisciplinary Journal, 30(6), 887-900. DOI: 10.1080/10705511.2022.2164285

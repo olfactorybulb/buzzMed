@@ -119,7 +119,7 @@ toy_data <- data.frame(
 
 # Fit the model
 results <- buzzEBMcatMcatY(
-   model    = "Y ~ M1 + M2 + X",
+   model    = "Y ~ M1 + M2 | X",
    dataset  = toy_data,
    n_burnin = 200,
    n_iter   = 1000
