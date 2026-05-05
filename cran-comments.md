@@ -1,5 +1,7 @@
 ## Resubmission
-This is a resubmission of `buzzMed`. The previous submission, `buzzMed 0.1.1`, was withdrawn to address documentation and dependency issues.
+This is a resubmission of `buzzMed 0.1.2`. Compared to the previous submission, I have:
+* Removed + file LICENSE from the DESCRIPTION file.
+* Removed the redundant LICENSE file from the package root as requested.
 
 ## Test environments
 * Local: macOS Sequoia 15.6.1 (aarch64), R 4.4.2

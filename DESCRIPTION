@@ -1,6 +1,6 @@
 Package: buzzMed
 Version: 0.1.2
-Date: 2026-05-04
+Date: 2026-05-05
 Title: Bayesian Understanding for Mediation Selection: A Framework for Selecting Mediating Effects in Exploratory Bayesian Mediation Modeling
 Authors@R: c(
     person("Dingjing", "Shi", email = "dshi32@gatech.edu", role = c("aut", "cre")),
@@ -9,7 +9,7 @@ Authors@R: c(
     person("Chih-Chia", "Hsing", email = "jesscc.hsing@gmail.com", role = "ctb")
     )
 Description: A collection of quantitative tools for selecting mediating effects within exploratory Bayesian mediation models. The package accommodates both continuous and dichotomous outcomes, including the dependent variables and the mediators for identifying and analyzing mediation pathways.
-License: GPL (>= 3) + file LICENSE
+License: GPL (>= 3)
 Depends:
     R (>= 4.0.0)
 SystemRequirements:
