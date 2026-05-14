@@ -111,7 +111,6 @@ precision parameters, the mediators \eqn{M} are binary and thus their
 residual precisions are fixed to 1 within the latent variable framework.
 }
 \examples{
-\dontrun{
 # Mixed case: Binary M, Continuous Y
 set.seed(789)
 n <- 100
@@ -124,14 +123,13 @@ toy_data <- data.frame(
 
 # Fit the model
 results <- buzzEBMcatMcontY(
-   model    = "Y ~ M1 + M2 + X",
+   model    = "Y ~ M1 + M2 | X",
    dataset  = toy_data,
    n_burnin = 200,
    n_iter   = 1000
 )
 
 summary(results)
-}
 
 }
 \references{

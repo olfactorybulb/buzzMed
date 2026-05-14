@@ -106,7 +106,6 @@ two levels, please convert them into dummy variables or ensure they
 are binary before running.
 }
 \examples{
-\dontrun{
 # Binary case: Both M and Y are Binary
 set.seed(101)
 n <- 100
@@ -126,7 +125,6 @@ results <- buzzEBMcatMcatY(
 )
 
 summary(results)
-}
 
 }
 \references{

@@ -4,7 +4,12 @@
 \alias{run_parms_wizard}
 \title{Interactive Prior Specification Wizard}
 \usage{
-run_parms_wizard()
+run_parms_wizard(verbose = TRUE)
+}
+\arguments{
+\item{verbose}{Logical. If \code{TRUE} (default), the wizard prints
+introductory text and the summary review table. If \code{FALSE}, only
+the interactive prompts are displayed.}
 }
 \value{
 A \code{data.frame} with columns \code{priors}, \code{distribution},
@@ -41,12 +46,19 @@ This function requires an interactive R session. It will return
 }
 \examples{
 \dontrun{
+# Create toy data
+toy_data <- data.frame(
+   X = rbinom(100, 1, 0.5),
+   M = rbinom(100, 1, 0.3),
+   Y = rbinom(100, 1, 0.5)
+)
+
 # Launch the wizard
 custom_priors <- run_parms_wizard()
 
 # Use the resulting object in a model
-fit <- buzzEBMcatMcatY(model = "Y ~ M + X",
-                     dataset = my_data,
+fit <- buzzEBMcatMcatY(model = "Y ~ M | X",
+                     dataset = toy_data,
                      my_prior = custom_priors)
 }
 

@@ -112,7 +112,6 @@ precision parameters, \eqn{Y} is binary and thus its residual precision
 is fixed to 1 within the latent variable framework.
 }
 \examples{
-\dontrun{
 # Mixed case: Continuous M, Binary Y
 set.seed(456)
 n <- 100
@@ -125,14 +124,13 @@ toy_data <- data.frame(
 
 # Fit the model
 results <- buzzEBMcontMcatY(
-   model    = "Y ~ M1 + M2 + X",
+   model    = "Y ~ M1 + M2 | X",
    dataset  = toy_data,
    n_burnin = 200,
    n_iter   = 1000
 )
 
 summary(results)
-}
 
 }
 \references{

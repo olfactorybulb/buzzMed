@@ -62,14 +62,10 @@
 #' residual precisions are fixed to 1 within the latent variable framework.
 #'
 #' @references
-#' Shi, D., Shi, D., & Fairchild, A. J. (2023). Variable Selection for Mediators
-#' under a Bayesian Mediation Model. \emph{Structural Equation Modeling: A
-#' Multidisciplinary Journal}, 30(6), 887–900.
-#' \doi{10.1080/10705511.2022.2164285}
-#'
+#' Shi, D., Shi, D., and Fairchild, A. J. (2023) "Variable Selection for Mediators
+#' under a Bayesian Mediation Model" <doi:10.1080/10705511.2022.2164285>
 #'
 #' @examples
-#' \dontrun{
 #' # Mixed case: Binary M, Continuous Y
 #' set.seed(789)
 #' n <- 100
@@ -82,14 +78,13 @@
 #'
 #' # Fit the model
 #' results <- buzzEBMcatMcontY(
-#'    model    = "Y ~ M1 + M2 + X",
+#'    model    = "Y ~ M1 + M2 | X",
 #'    dataset  = toy_data,
 #'    n_burnin = 200,
 #'    n_iter   = 1000
 #' )
 #'
 #' summary(results)
-#' }
 #'
 #' @export
 

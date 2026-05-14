@@ -58,6 +58,10 @@
 #' and \code{arguments}. This dataframe is formatted to be passed directly
 #' to the \code{my_prior} argument in related fitting functions.
 #'
+#' @param verbose Logical. If \code{TRUE} (default), the wizard prints
+#' introductory text and the summary review table. If \code{FALSE}, only
+#' the interactive prompts are displayed.
+#'
 #' @note
 #' This function requires an interactive R session. It will return
 #' \code{invisible(NULL)} if the user cancels the process.
@@ -65,32 +69,41 @@
 #'
 #' @examples
 #' \dontrun{
+#' # Create toy data
+#' toy_data <- data.frame(
+#'    X = rbinom(100, 1, 0.5),
+#'    M = rbinom(100, 1, 0.3),
+#'    Y = rbinom(100, 1, 0.5)
+#' )
+#'
 #' # Launch the wizard
 #' custom_priors <- run_parms_wizard()
 #'
 #' # Use the resulting object in a model
-#' fit <- buzzEBMcatMcatY(model = "Y ~ M + X",
-#'                      dataset = my_data,
+#' fit <- buzzEBMcatMcatY(model = "Y ~ M | X",
+#'                      dataset = toy_data,
 #'                      my_prior = custom_priors)
 #' }
 #'
 #' @export
-run_parms_wizard <- function() {
+#'
+#'
+run_parms_wizard <- function(verbose = TRUE) {
   .check_dist_lookup_coverage()
   parms <- .make_default_parms()
 
   # --- Step 1: Show current defaults ----------------------------------------
-
+  if (verbose) {
   cat("\n=== Prior specification wizard ===\n")
   cat("Current default priors:\n")
   .print_parms_table(parms)
-
+}
   # --- Step 2: Which priors to change ---------------------------------------
 
   raw_input <- readline(prompt = "Enter the numbers of the priors you want to change (comma-separated), or press Enter to accept all defaults: ")
 
   if (trimws(raw_input) == "") {
-    cat("\nNo changes made. Returning default parms.\n\n")
+    message("\nNo changes made. Returning default parms.\n")
     return(parms[, c("priors", "distribution", "arguments")])
   }
 
@@ -183,17 +196,19 @@ run_parms_wizard <- function() {
 
   # --- Step 4: Confirm -------------------------------------------------------
 
+  if (verbose) {
   cat("\n=== Review your changes ===\n")
   .print_parms_table(parms)
+  }
   confirm <- trimws(tolower(readline(prompt = "Confirm and return this dataframe? (Y/n): ")))
 
   if (confirm == "n") {
-    cat("\nWizard cancelled. No dataframe returned.\n\n")
+    message("\nWizard cancelled. No dataframe returned.\n")
     return(invisible(NULL))
   }
 
   # --- Step 5: Return --------------------------------------------------------
 
-  cat("\nDone!\n")
+  message("\nDone!\n")
   parms[, c("priors", "distribution", "arguments")]
 }

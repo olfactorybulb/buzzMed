@@ -61,14 +61,10 @@
 #' \code{\link{prepare_ebmed_data}} and \code{build_ebmed_model_mcat_ycat}.
 #'
 #' @references
-#' Shi, D., Shi, D., & Fairchild, A. J. (2023). Variable Selection for Mediators
-#' under a Bayesian Mediation Model. \emph{Structural Equation Modeling: A
-#' Multidisciplinary Journal}, 30(6), 887–900.
-#' \doi{10.1080/10705511.2022.2164285}
-#'
+#' Shi, D., Shi, D., and Fairchild, A. J. (2023) "Variable Selection for Mediators
+#' under a Bayesian Mediation Model" <doi:10.1080/10705511.2022.2164285>
 #'
 #' @examples
-#' \dontrun{
 #' # Binary case: Both M and Y are Binary
 #' set.seed(101)
 #' n <- 100
@@ -88,7 +84,6 @@
 #' )
 #'
 #' summary(results)
-#' }
 #'
 #' @importFrom utils head
 #' @importFrom methods setClass
