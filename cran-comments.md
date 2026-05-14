@@ -13,7 +13,7 @@ This is a resubmission of buzzMed 0.1.2. This version addresses the feedback pro
 
 ## Test environments
 * Local: macOS Sequoia 15.6.1 (aarch64), R 4.4.2
-* Windows Server (win-builder): R-devel (2026-05-03 r89994 ucrt)
+* Windows Server (win-builder): R-devel (2026-05-12 r90049 ucrt)
 * Linux (R-hub): Ubuntu Linux 24.04.4 LTS, R-release (4.6.0)
 
 ## R CMD check results
