@@ -137,7 +137,6 @@ results <- buzzEBMcontMcontY(
 
 # 3. Check results
 summary(results)
-plot(results)
 
 }
 \references{
