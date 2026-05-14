@@ -18,7 +18,7 @@
   * Added `make_parms_from_argument()` and `make_parms_from_df()` for flexible input methods.
 
 * **Internal Improvements**:
-  * Transitioned console output to use `message()` for better suppressibility.
+  * Transitioned console output to use `message()` for better control.
   * Organized internal logic into `helpers.R` and `extract_results.R` to improve maintainability and result readability.
 
 ---
