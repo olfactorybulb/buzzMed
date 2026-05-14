@@ -88,7 +88,6 @@
 #'
 #' # 3. Check results
 #' summary(results)
-#' plot(results)
 #'
 #' @export
 
