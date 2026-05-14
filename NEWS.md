@@ -1,17 +1,26 @@
 # buzzMed 0.1.2
+
+* **CRAN Compliance**:
+  * Shortened package title to meet 65-character limit.
+  * Reformatted all methodological references to use the `<doi:...>` bracket notation.
+  * Unwrapped `\dontrun{}` examples to meet execution time requirements.
+  * Added and documented a `verbose` argument for `run_parms_wizard()`.
+
 * **Function Renaming**: Updated core fitting functions for better clarity on data types:
   * `buzzEBMcat`   -> `buzzEBMcatMcontY`
-  * `buzzMYcat`  -> `buzzEBMcatMcatY`
-  * `buzzMYcont` -> `buzzEBMcontMcontY`
-  * `buzzYcat`   -> `buzzEBMcontMcatY`
-* **Custom Prior Support**: Users can now manually define prior distributions.
+  * `buzzMYcat`    -> `buzzEBMcatMcatY`
+  * `buzzMYcont`   -> `buzzEBMcontMcontY`
+  * `buzzYcat`     -> `buzzEBMcontMcatY`
+
+* **Custom Prior Support**: Users can now manually define prior distributions via new internal parameter-handling logic.
+  * Added `run_parms_wizard()`, a CLI tool to guide users through creating prior dataframes interactively.
   * Added `make_parms_main()` as a internal central router for parameter handling.
   * Added `make_parms_from_argument()` and `make_parms_from_df()` for flexible input methods.
-* **Interactive Features**:
-  * Added `run_parms_wizard()`, a CLI tool to guide users through creating prior dataframes interactively.
+
 * **Internal Improvements**:
-  * Introduced `helpers.R` to house smaller internal helper functions.
-  * Introduced `extract_results.R` that extracts the summary of the output to increase result readability.
+  * Transitioned console output to use `message()` for better suppressibility.
+  * Organized internal logic into `helpers.R` and `extract_results.R` to improve maintainability and result readability.
+
 ---
 
 # buzzMed 0.1.1
