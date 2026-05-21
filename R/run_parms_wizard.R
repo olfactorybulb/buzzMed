@@ -68,7 +68,6 @@
 #'
 #'
 #' @examples
-#' \dontrun{
 #' # Create toy data
 #' toy_data <- data.frame(
 #'    X = rbinom(100, 1, 0.5),
@@ -76,14 +75,17 @@
 #'    Y = rbinom(100, 1, 0.5)
 #' )
 #'
+#' custom_priors <- NULL
+#'
+#' if (interactive()){
 #' # Launch the wizard
 #' custom_priors <- run_parms_wizard()
+#' }
 #'
 #' # Use the resulting object in a model
 #' fit <- buzzEBMcatMcatY(model = "Y ~ M | X",
 #'                      dataset = toy_data,
 #'                      my_prior = custom_priors)
-#' }
 #'
 #' @export
 #'

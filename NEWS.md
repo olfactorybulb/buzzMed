@@ -3,7 +3,8 @@
 * **CRAN Compliance**:
   * Shortened package title to meet 65-character limit.
   * Reformatted all methodological references to use the `<doi:...>` bracket notation.
-  * Unwrapped `\dontrun{}` examples to meet execution time requirements.
+  * Replaced `\dontrun{}` with `if(interactive()){}` for interactive functions.
+  * Unwrapped `\dontrun{}` examples when the code can execute in under 5 seconds.
   * Added and documented a `verbose` argument for `run_parms_wizard()`.
 
 * **Function Renaming**: Updated core fitting functions for better clarity on data types:
