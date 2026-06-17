@@ -25,7 +25,7 @@ Suggests:
     rmarkdown,
     spelling,
     testthat (>= 3.0.0)
-LazyData: yes
+LazyData: true
 ByteCompile: true
 VignetteBuilder: knitr
 URL: https://github.com/olfactorybulb/buzzMed

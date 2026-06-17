@@ -162,26 +162,26 @@
 
   # --- NEW: Structural Syntax Check ---
   if (!grepl("~", model) || !grepl("\\|", model)) {
-    stop("Invalid model syntax. Use: 'Y ~ M1 + M2 | X'")
+    stop("Invalid model syntax. Use: 'Y ~ X1 + X2 | M1 + M2'")
   }
 
   # 2. Split by the pipe '|'
   parts <- unlist(strsplit(model, "\\|"))
   if (length(parts) != 2) {
-    stop("Invalid model syntax. Use: 'Y ~ M1 + M2 | X'")
+    stop("Invalid model syntax. Use: 'Y ~ X1 + X2 | M1 + M2")
   }
 
   # 3. Extract Y, M, and X
   lhs_full <- trimws(parts[1])
   Y <- trimws(strsplit(lhs_full, "~")[[1]][1])
-  M_string <- trimws(strsplit(lhs_full, "~")[[1]][2])
-  M <- trimws(unlist(strsplit(M_string, "\\+")))
-
-  X_string <- trimws(parts[2])
+  X_string <- trimws(strsplit(lhs_full, "~")[[1]][2])
   X <- trimws(unlist(strsplit(X_string, "\\+")))
 
+  M_string <- trimws(parts[2])
+  M <- trimws(unlist(strsplit(M_string, "\\+")))
+
   # 4. Validation: Check if variables exist in the data
-  all_vars <- c(Y, M, X)
+  all_vars <- c(Y, X, M)
   missing_vars <- all_vars[!(all_vars %in% colnames(dataset))]
 
   if (length(missing_vars) > 0) {
