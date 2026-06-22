@@ -30,7 +30,7 @@
 #'
 #' @return A matrix of posterior summary statistics produced by
 #'   `summary(output)$statistics`, including posterior means, standard
-#'   deviations, and Monte Carlo standard errors for the monitored
+#'   deviations, and standard errors for the monitored
 #'   parameters.
 #'
 #' @details
