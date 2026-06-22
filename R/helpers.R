@@ -16,14 +16,12 @@
 #' @noRd
 .make_default_parms <- function() {
   data.frame(
-    priors       = c("a.coef","b.coef","m.prec","y.prec",
+    priors       = c("m.prec","y.prec",
                      "direct.coef","a.pip.hyperprior","b.pip.hyperprior"),
-    distribution = c("dnorm","dnorm","dgamma","dgamma","dnorm","dbeta","dbeta"),
-    arguments    = c("0,1.0E-6","0,1.0E-6",
-                     "1,0.001","1,0.001",
+    distribution = c("dgamma","dgamma","dnorm","dbeta","dbeta"),
+    arguments    = c( "1,0.001","1,0.001",
                      "0,1.0E-6","3,3","3,3"),
-    template     = c("%s[j,p] ~ %s(%s)","%s[j] ~ %s(%s)",
-                     "%s[j] ~ %s(%s)","%s ~ %s(%s)","%s[p] ~ %s(%s)",
+    template     = c("%s[j] ~ %s(%s)","%s ~ %s(%s)","%s[p] ~ %s(%s)",
                      "%s ~ %s(%s)","%s ~ %s(%s)"),
     stringsAsFactors = FALSE
   )
@@ -32,8 +30,6 @@
 #' Human-readable descriptions for the wizard
 #' @noRd
 .prior_descriptions <- c(
-  "a.coef"           = "Coefficient for the a effect.",
-  "b.coef"           = "Coefficient for the b effect.",
   "m.prec"           = "Precision of the normal distribution for the mediators.",
   "y.prec"           = "Precision of the normal distribution for the dependent variables.",
   "direct.coef"      = "Coefficient for the direct effect.",

@@ -23,14 +23,6 @@
 #' @param y.prec.shape,y.prec.rate Numeric scalar. Shape and rate parameters
 #' of the Gamma hyperprior for the outcome residual precision. By default, a
 #' Gamma distribution is used. The default values are 1 and 0.001, respectively.
-#' @param a.coef.mean,a.coef.prec Numeric scalar or vector.
-#' Mean and precision parameters of the Normal prior for the \eqn{a} path effects.
-#' By default, a Normal distribution is used. The default values are 0 and 1.0E-6,
-#' respectively.
-#' @param b.coef.mean,b.coef.prec Numeric scalar or vector.
-#' Mean and precision parameters of the Normal prior for the \eqn{b} path effects.
-#' By default, a Normal distribution is used. The default values are 0 and 1.0E-6,
-#' respectively.
 #' @param a.pip.hyperalpha,a.pip.hyperbeta Numeric scalar or vector. Alpha and
 #' beta parameters for the Beta hyperprior of the \eqn{a} path inclusion
 #' probabilities. By default, a Beta distribution is used. The default value is 3.
@@ -98,8 +90,6 @@ buzzEBMcontMcontY <- function(
     my_prior = NULL, advanced = NULL,
     m.prec.shape = NULL, m.prec.rate = NULL,
     y.prec.shape = NULL, y.prec.rate = NULL,
-    a.coef.mean = NULL, a.coef.prec = NULL,
-    b.coef.mean = NULL, b.coef.prec = NULL,
     a.pip.hyperalpha = NULL, a.pip.hyperbeta = NULL,
     b.pip.hyperalpha = NULL, b.pip.hyperbeta = NULL,
     direct.coef.mean = NULL, direct.coef.precision = NULL,
@@ -135,10 +125,6 @@ buzzEBMcontMcontY <- function(
     m.prec.rate  = m.prec.rate,
     y.prec.shape = y.prec.shape,
     y.prec.rate  = y.prec.rate,
-    a.coef.mean = a.coef.mean,
-    a.coef.prec  = a.coef.prec,
-    b.coef.mean = b.coef.mean,
-    b.coef.prec  = b.coef.prec,
     a.pip.hyperalpha = a.pip.hyperalpha,
     a.pip.hyperbeta  = a.pip.hyperbeta,
     b.pip.hyperalpha = b.pip.hyperalpha,
