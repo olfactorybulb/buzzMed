@@ -129,7 +129,7 @@ toy_data <- data.frame(
 # 2. Fit the model using lavaan-style syntax
 # We define Y as the outcome, with M1, M2, and X as predictors
 results <- buzzEBMcontMcontY(
-   model    = "Y ~ M1 + M2 | X",
+   model    = "Y ~ X | M1 + M2",
    dataset  = toy_data,
    n_burnin = 500,
    n_iter   = 2000
