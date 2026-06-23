@@ -11,10 +11,6 @@ buzzEBMcontMcatY(
   advanced = NULL,
   m.prec.shape = NULL,
   m.prec.rate = NULL,
-  a.coef.mean = NULL,
-  a.coef.prec = NULL,
-  b.coef.mean = NULL,
-  b.coef.prec = NULL,
   a.pip.hyperalpha = NULL,
   a.pip.hyperbeta = NULL,
   b.pip.hyperalpha = NULL,
@@ -48,16 +44,6 @@ to choose parameter distributions, or leave \code{NULL} for defaults.}
 the number of mediators. Shape and rate parameters of the Gamma hyperprior
 for the mediator residual precisions. By default, a Gamma distribution is
 used. The default values are 1 and 0.001, respectively.}
-
-\item{a.coef.mean, a.coef.prec}{Numeric scalar or vector.
-Mean and precision parameters of the Normal prior for the \eqn{a} path effects.
-By default, a Normal distribution is used. The default values are 0 and 1.0E-6,
-respectively.}
-
-\item{b.coef.mean, b.coef.prec}{Numeric scalar or vector.
-Mean and precision parameters of the Normal prior for the \eqn{b} path effects.
-By default, a Normal distribution is used. The default values are 0 and 1.0E-6,
-respectively.}
 
 \item{a.pip.hyperalpha, a.pip.hyperbeta}{Numeric scalar or vector. Alpha and
 beta parameters for the Beta hyperprior of the \eqn{a} path inclusion
@@ -124,7 +110,7 @@ toy_data <- data.frame(
 
 # Fit the model
 results <- buzzEBMcontMcatY(
-   model    = "Y ~ M1 + M2 | X",
+   model    = "Y ~ X | M1 + M2",
    dataset  = toy_data,
    n_burnin = 200,
    n_iter   = 1000

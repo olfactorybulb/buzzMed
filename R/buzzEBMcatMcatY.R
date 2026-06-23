@@ -21,14 +21,6 @@
 #' @param advanced Character. Use \code{"interactive"} for an interactive wizard
 #' to choose parameter distributions, or leave \code{NULL} for defaults.
 #'
-#' @param a.coef.mean,a.coef.prec Numeric scalar or vector.
-#' Mean and precision parameters of the Normal prior for the \eqn{a} path effects.
-#' By default, a Normal distribution is used. The default values are 0 and 1.0E-6,
-#' respectively.
-#' @param b.coef.mean,b.coef.prec Numeric scalar or vector.
-#' Mean and precision parameters of the Normal prior for the \eqn{b} path effects.
-#' By default, a Normal distribution is used. The default values are 0 and 1.0E-6,
-#' respectively.
 #' @param a.pip.hyperalpha,a.pip.hyperbeta Numeric scalar or vector. Alpha and
 #' beta parameters for the Beta hyperprior of the \eqn{a} path inclusion
 #' probabilities. By default, a Beta distribution is used. The default value is 3.
@@ -94,8 +86,6 @@ buzzEBMcatMcatY <- function(
     model,
     dataset,
     my_prior = NULL, advanced = NULL,
-    a.coef.mean = NULL, a.coef.prec = NULL,
-    b.coef.mean = NULL, b.coef.prec = NULL,
     a.pip.hyperalpha = NULL, a.pip.hyperbeta = NULL,
     b.pip.hyperalpha = NULL, b.pip.hyperbeta = NULL,
     direct.coef.mean = NULL, direct.coef.precision = NULL,
@@ -124,10 +114,6 @@ buzzEBMcatMcatY <- function(
   bdata <- prepare_ebmed_data(dataset, X, M, Y, M_cont, Y_cont)
 
   parms <- make_parms_main(
-    a.coef.mean = a.coef.mean,
-    a.coef.prec  = a.coef.prec,
-    b.coef.mean = b.coef.mean,
-    b.coef.prec  = b.coef.prec,
     a.pip.hyperalpha = a.pip.hyperalpha,
     a.pip.hyperbeta  = a.pip.hyperbeta,
     b.pip.hyperalpha = b.pip.hyperalpha,

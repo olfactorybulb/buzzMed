@@ -76,6 +76,8 @@ define_init_values <- function(
 
     list(
       direct.coef = rep(direct.coef.init, P),
+      a.coef.hyperprec = 1,
+      b.coef.hyperprec = 1,
       a.pip.hyperprior = a.pip.hyperprior.init,
       b.pip.hyperprior = b.pip.hyperprior.init
     )

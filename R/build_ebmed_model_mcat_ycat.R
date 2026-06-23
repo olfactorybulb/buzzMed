@@ -70,7 +70,7 @@ model {
      a.pip[j] ~ dbern(a.pip.hyperprior)
     for (p in 1:", P, ") {
       a[j, p] <- a.pip[j] * a.coef[j, p]
-    ", prior_strings["a.coef"],"
+      a.coef[j, p] ~ dnorm(0, a.coef.hyperprec)
     }
   }
 
@@ -83,7 +83,7 @@ model {
   for (j in 1:", K, ") {
     b.pip[j] ~ dbern(b.pip.hyperprior)
     b[j] <- b.pip[j] * b.coef[j]
-  ", prior_strings["b.coef"],"
+    b.coef[j] ~ dnorm(0, b.coef.hyperprec)
   }
 
   ## Direct effects for predictors
@@ -94,6 +94,8 @@ model {
   ## Hyperparameters
   ", prior_strings["a.pip.hyperprior"], "
   ", prior_strings["b.pip.hyperprior"], "
+  a.coef.hyperprec ~ dgamma(1, 0.001)
+  b.coef.hyperprec ~ dgamma(1, 0.001)
 
   ## Joint inclusion indicators
   ind.joint <- a.pip * b.pip
