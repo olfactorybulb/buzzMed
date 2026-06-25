@@ -1,4 +1,4 @@
-# buzzMed v0.1.2
+# buzzMed v0.1.3
 
 **Exploratory Bayesian Mediation Analysis with Variable Selection**
 
