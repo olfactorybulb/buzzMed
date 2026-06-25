@@ -1,3 +1,19 @@
+# buzzMed 0.1.3
+
+## New features
+* Added `longBMed()` for exploratory Bayesian mediation analysis with longitudinal data.
+* Added two example datasets: `singlespikes` and `sublongspikes`.
+
+## Improvements
+* Updated model examples to use the corrected syntax `Y ~ X | M`.
+* Updated documentation for new datasets and longitudinal mediation examples.
+* Updated tests to reflect the current model syntax and prior structure.
+
+## Bug fixes
+* Fixed package check issues related to missing dataset documentation, example syntax, and namespace imports.
+
+---
+
 # buzzMed 0.1.2
 
 * **CRAN Compliance**:
