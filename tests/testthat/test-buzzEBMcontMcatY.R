@@ -10,7 +10,7 @@ test_that("buzzEBMcontMcatY runs end-to-end without crashing", {
   )
 
   res <- buzzEBMcontMcatY(
-    model    = "Y ~ M1 + M2 | X",
+    model    = "Y ~ X | M1 + M2",
     dataset  = toy_data,
     n_chains = 1,
     n_burnin = 10,

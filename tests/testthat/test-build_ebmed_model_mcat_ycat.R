@@ -1,13 +1,11 @@
 # --- Arrange: Create the dummy parms dataframe ---
 dummy_parms <- data.frame(
-  priors       = c("a.coef","b.coef","m.prec","y.prec",
+  priors       = c("m.prec","y.prec",
                    "direct.coef","a.pip.hyperprior","b.pip.hyperprior"),
-  distribution = c("dnorm","dnorm","dgamma","dgamma","dnorm","dbeta","dbeta"),
-  arguments    = c("0,1.0E-6","0,1.0E-6",
-                   "1,0.001","1,0.001",
+  distribution = c("dgamma","dgamma","dnorm","dbeta","dbeta"),
+  arguments    = c("1,0.001","1,0.001",
                    "0,1.0E-6","3,3","3,3"),
-  template     = c("%s[j,p] ~ %s(%s)","%s[j] ~ %s(%s)",
-                   "%s[j] ~ %s(%s)","%s ~ %s(%s)","%s[p] ~ %s(%s)",
+  template     = c("%s[j] ~ %s(%s)","%s ~ %s(%s)","%s[p] ~ %s(%s)",
                    "%s ~ %s(%s)","%s ~ %s(%s)"),
   stringsAsFactors = FALSE
 )
@@ -53,7 +51,6 @@ test_that("build_ebmed_model_mcat_ycat properly injects prior strings", {
   model_str <- build_ebmed_model_mcat_ycat(P = 1, K = 1, parms = dummy_parms)
 
   # Assert: The formatted strings from the dataframe should be pasted in exactly
-  expect_match(model_str, "a\\.coef\\[j,p\\] ~ dnorm\\(0,1\\.0E-6\\)")
   expect_match(model_str, "a\\.pip\\.hyperprior ~ dbeta\\(3,3\\)")
   expect_match(model_str, "direct\\.coef\\[p\\] ~ dnorm\\(0,1\\.0E-6\\)")
 })

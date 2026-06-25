@@ -14,7 +14,7 @@ test_that("buzzEBMcatMcatY runs end-to-end without crashing", {
   # Act: Run the model with extremely low MCMC settings to save time
   # We use capture.output() or suppressWarnings() if JAGS prints too much to the console
   res <- buzzEBMcatMcatY(
-    model    = "Y ~ M1 + M2 | X",
+    model    = "Y ~ X | M1 + M2",
     dataset  = toy_data,
     n_chains = 1,      # Just 1 chain
     n_burnin = 10,     # Bare minimum burn-in
@@ -35,7 +35,7 @@ test_that("buzzEBMcatMcatY catches bad formulas before running JAGS", {
 
   # Assert: It should immediately fail using the parser we tested earlier
   expect_error(
-    buzzEBMcatMcatY(model = "Y = M1 | X", dataset = toy_data),
+    buzzEBMcatMcatY(model = "Y = X | M1", dataset = toy_data),
     regexp = "Invalid model syntax"
   )
 })

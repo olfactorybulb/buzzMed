@@ -1,14 +1,12 @@
 # Create a valid dummy list based on your required structure
 # We define this outside the test_that blocks so we can reuse it easily
 dummy_list <- list(
-  priors       = c("a.coef","b.coef","m.prec","y.prec",
+  priors       = c("m.prec","y.prec",
                    "direct.coef","a.pip.hyperprior","b.pip.hyperprior"),
-  distribution = c("dnorm","dnorm","dgamma","dgamma","dnorm","dbeta","dbeta"),
-  arguments    = c("0,1.0E-6","0,1.0E-6",
-                   "1,0.001","1,0.001",
+  distribution = c("dgamma","dgamma","dnorm","dbeta","dbeta"),
+  arguments    = c("1,0.001","1,0.001",
                    "0,1.0E-6","3,3","3,3"),
-  template     = c("%s[j,p] ~ %s(%s)","%s[j] ~ %s(%s)",
-                   "%s[j] ~ %s(%s)","%s ~ %s(%s)","%s[p] ~ %s(%s)",
+  template     = c("%s[j] ~ %s(%s)","%s ~ %s(%s)","%s[p] ~ %s(%s)",
                    "%s ~ %s(%s)","%s ~ %s(%s)")
 )
 dummy_df <- as.data.frame(dummy_list)
@@ -50,7 +48,7 @@ test_that("make_parms_main correctly prioritizes my_prior over named arguments",
   expect_message(
     result <- make_parms_main(
       my_prior = dummy_df,
-      a.coef.mean = 0, # Trigger named argument
+      m.prec.shape = 1, # Trigger named argument
       advanced = NULL
     ),
     regexp = "Both 'my_prior' and named arguments supplied. 'my_prior' takes priority."
@@ -68,7 +66,7 @@ test_that("advanced = FALSE ignores my_prior with a message", {
 
 test_that("advanced = 'myprior' ignores named arguments with a message", {
   expect_message(
-    make_parms_main(my_prior = dummy_df, a.coef.mean = 0, advanced = "myprior"),
+    make_parms_main(my_prior = dummy_df, m.prec.shape = 1, advanced = "myprior"),
     regexp = "Named arguments are ignored when advanced = 'myprior'."
   )
 })
