@@ -51,7 +51,7 @@
 #' @details
 #' \strong{Index expression syntax (3-D array only):}
 #' Each of the three formula components (Y, X, M) is parsed as a set of
-#' integer slice indices. Two operators are recognised:
+#' integer slice indices. Two operators are recognized:
 #' \itemize{
 #'   \item \code{+} adds one or more individual indices, e.g. \code{1+2+4}.
 #'   \item \code{:} expands a range, e.g. \code{3:9} becomes 3,4,5,6,7,8,9.
@@ -73,6 +73,7 @@
 #' \code{[K, P, T]}.
 #'
 #' @importFrom rjags jags.model coda.samples
+#' @importFrom stats rnorm
 #'
 #' @export
 

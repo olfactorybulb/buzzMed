@@ -70,7 +70,7 @@
 #'
 #' # Fit the model
 #' results <- buzzEBMcatMcontY(
-#'    model    = "Y ~ M1 + M2 | X",
+#'    model    = "Y ~ X | M1 + M2",
 #'    dataset  = toy_data,
 #'    n_burnin = 200,
 #'    n_iter   = 1000

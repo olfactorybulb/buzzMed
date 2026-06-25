@@ -47,13 +47,13 @@ make_parms_from_df <- function(my_prior) {
     ))
   }
 
-  # --- Unrecognised priors ---------------------------------------------------
+  # --- Unrecognized priors ---------------------------------------------------
   known_priors   <- parms$priors
   user_priors    <- my_prior$priors
   unknown_priors <- setdiff(user_priors, known_priors)
   if (length(unknown_priors) > 0) {
     warning(sprintf(
-      "The following priors are not recognised and will be ignored: %s.",
+      "The following priors are not recognized and will be ignored: %s.",
       paste(unknown_priors, collapse = ", ")
     ))
     my_prior <- my_prior[my_prior$priors %in% known_priors, ]

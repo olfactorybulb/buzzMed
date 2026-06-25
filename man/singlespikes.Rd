@@ -8,7 +8,25 @@
 A data frame with 300 rows and 22 variables:
 \describe{
   \item{x}{Predictor variable.}
-  \item{m1--m19}{Candidate mediators.}
+  \item{m1}{Candidate mediator 1.}
+  \item{m2}{Candidate mediator 2.}
+  \item{m3}{Candidate mediator 3.}
+  \item{m4}{Candidate mediator 4.}
+  \item{m5}{Candidate mediator 5.}
+  \item{m6}{Candidate mediator 6.}
+  \item{m7}{Candidate mediator 7.}
+  \item{m8}{Candidate mediator 8.}
+  \item{m9}{Candidate mediator 9.}
+  \item{m10}{Candidate mediator 10.}
+  \item{m11}{Candidate mediator 11.}
+  \item{m12}{Candidate mediator 12.}
+  \item{m13}{Candidate mediator 13.}
+  \item{m14}{Candidate mediator 14.}
+  \item{m15}{Candidate mediator 15.}
+  \item{m16}{Candidate mediator 16.}
+  \item{m17}{Candidate mediator 17.}
+  \item{m18}{Candidate mediator 18.}
+  \item{m19}{Candidate mediator 19.}
   \item{y}{Outcome variable.}
 }
 }
