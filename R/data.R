@@ -124,6 +124,6 @@
 #' Adapted from the \code{framing} dataset in the \pkg{mediation} package.
 #'
 #' @docType data
-#' @name framingbinarized
+#' @name framing2
 #' @keywords datasets
-"framingbinarized"
+"framing2"
