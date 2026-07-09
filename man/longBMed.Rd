@@ -2,47 +2,50 @@
 % Please edit documentation in R/longBMed.R
 \name{longBMed}
 \alias{longBMed}
-\title{Exploratory Bayesian Mediation Analysis for Longitudinal Data}
+\title{Select time-varying mediators using the longitudinal Bayesian mediation selection model}
 \usage{
-longBMed(model = NULL, data, n.burnin = 1000, n.iter = 5000, thin = 1)
+longBMed(model = NULL, data, n.burnin = 3000, n.iter = 6000, thin = 1)
 }
 \arguments{
-\item{model}{Specifies how slices or variables map to Y, X, and M roles.
+\item{model}{Specifies how variables are assigned to the outcome(Y),
+  predictor(s)(X), and candidate mediator(s) (M).
   The format depends on the type of \code{data}:
 
-  \strong{3-D array:} A character string using slice index expressions, of
-  the form \code{"Y_idx ~ X_idx | M_idx"}, where each component is a
-  comma-free expression built from integers and ranges joined by \code{+}
-  or \code{:}. For example \code{"10 ~ 1+2 | 3:9"} assigns slice 10 to Y,
-  slices 1 and 2 to X, and slices 3 through 9 to M. Passing a real R
-  formula object (created with \code{~}) is not supported for the array
-  format and will raise an error. If \code{model} is \code{NULL} and
-  \code{data} is a 3-D array, the function defaults to slice 1 as X, the
-  last slice as Y, and all middle slices as M, and prints a message
-  describing this choice.
+  \strong{Named list or data frame:} A character string of the form
+  \code{"Y ~ X1 + X2 | M1 + M2"}, where \code{Y}, \code{X1},
+  \code{X2}, \code{M1}, and \code{M2} should be replaced by the names of the
+  corresponding variables in the named list or data frame.
 
-  \strong{Named list or data frame:} A character string or R formula of the
-  form \code{"Y ~ X1 + X2 | M1 + M2"}, where each token is a variable
-  name matching a list element or data frame column. A \code{model} string
-  is required for these formats.}
+  \strong{3-D array:} A character string of the form \code{"Y ~ X | M"},
+  where Y, X, and M are specified using slice numbers. For example,
+  \code{"10 ~ 1+2 | 3:9"} uses slice 10 as the outcome,
+  slices 1 and 2 as predictors, and slices 3 through 9 as candidate mediators.
+  If \code{model = NULL}, the first slice is used as the predictor, the
+  last slice as the outcome, and all remaining slices as candidate mediators.}
 
 \item{data}{One of:
 \describe{
-  \item{3-D numeric array \code{[N, T, S]}}{Slice assignments are
+  \item{3-D numeric array \code{[N, T, K]}}{ N represents number of
+  observations, T represents number of measurement occasions,
+  and K represents a concatenated dimension of X, M, Y. Slice assignments are
     controlled by \code{model} (index expression string) or defaulted
-    automatically when \code{model = NULL}.}
+    automatically when \code{model = NULL} as mentioned above in the
+    \code{model} section.}
   \item{Named list of \code{N x T} matrices}{Each element is a
     subject-by-time matrix. Names must match the variable names in
     \code{model}.}
-  \item{Long-format data frame}{Must contain columns \code{id} and
-    \code{time} plus one column per variable named in \code{model}.
-    Rows are sorted by \code{id} then \code{time} before reshaping.}
+  \item{Long-format data frame}{The original longitudinal data in long
+  format, where each row represents one measurement for one observational
+  unit at one measurement occasion. The data frame must contain columns
+  named \code{id} and \code{time}, together with one column for each
+  variable specified in \code{model}. Here, \code{id} identifies each
+  observational unit and \code{time} identifies the measurement occasion.}
 }}
 
-\item{n.burnin}{Integer. Number of burn-in iterations. Default \code{1000}.}
+\item{n.burnin}{Integer. Number of burn-in iterations. Default \code{3000}.}
 
 \item{n.iter}{Integer. Number of posterior samples after burn-in.
-Default \code{5000}.}
+Default \code{6000}.}
 
 \item{thin}{Integer. Thinning interval. Default \code{1}.}
 }
@@ -52,9 +55,8 @@ A matrix of posterior summary statistics from
   deviations, and standard errors for \code{ind.joint} and \code{ind.p}.
 }
 \description{
-Fits the Longitudinal Bayesian Mediation (longBMed) model for identifying
-candidate mediators in repeated-measures data using Bayesian variable
-selection implemented in JAGS.
+This function selects time-varying mediators using the longitudinal
+Bayesian mediation selection model.
 }
 \details{
 The model supports one or more predictor variables (X), one or more
@@ -62,26 +64,11 @@ candidate mediators (M), and exactly one outcome variable (Y). Data may be
 supplied in any of three formats (see Details).
 
 
-\strong{Index expression syntax (3-D array only):}
-Each of the three formula components (Y, X, M) is parsed as a set of
-integer slice indices. Two operators are recognized:
-\itemize{
-  \item \code{+} adds one or more individual indices, e.g. \code{1+2+4}.
-  \item \code{:} expands a range, e.g. \code{3:9} becomes 3,4,5,6,7,8,9.
-  \item Both may be mixed freely, e.g. \code{1:2+4} or \code{3+5:8+10}.
-}
-The following checks are performed and raise errors:
-\itemize{
-  \item Y must resolve to exactly one slice index.
-  \item Any index out of bounds (< 1 or > S).
-  \item Overlapping indices across roles (Y vs X, Y vs M, X vs M).
-}
-Duplicate indices \emph{within} a single role produce a warning and are
-de-duplicated. Slices not assigned to any role produce an informational
-message listing the omitted slice numbers.
+#' For a named list or long-format data frame, the model can be specified using
+variable names, such as \code{"Y ~ X1 + X2 | M1 + M2"}.
 
-\strong{Multiple predictors (X):} When more than one predictor is supplied
-the JAGS model includes a coefficient for each predictor with time-varying
-spike-and-slab selection. The \code{alpha1_t} array becomes
-\code{[K, P, T]}.
+For a 3-D array, the model can be specified using integer slice indices,
+such as \code{"21 ~ 1 | 2:20"}, where the left side specifies the outcome,
+the expression before \code{|} specifies the predictor(s), and the
+expression after \code{|} specifies the mediator(s).
 }

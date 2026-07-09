@@ -20,7 +20,7 @@ to the \code{my_prior} argument in related fitting functions.
 This function allows users to customize priors without needing to manually
 construct complex data frames. It displays current defaults, allows
 selection of specific parameters to change, and provides a menu of
-available JAGS distributions (e.g., Normal, Gamma, Beta).
+available probabilistic distributions (e.g., Normal, Gamma, Beta).
 }
 \details{
 Launches an interactive console-based interface to guide users through

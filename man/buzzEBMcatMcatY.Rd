@@ -2,7 +2,7 @@
 % Please edit documentation in R/buzzEBMcatMcatY.R
 \name{buzzEBMcatMcatY}
 \alias{buzzEBMcatMcatY}
-\title{Fit Bayesian Mediation Model (Binary M & Binary Y)}
+\title{Select binary mediators using the GT-exploratory Bayesian mediation model with dichotomous dependent variables.}
 \usage{
 buzzEBMcatMcatY(
   model,
@@ -26,8 +26,11 @@ buzzEBMcatMcatY(
 )
 }
 \arguments{
-\item{model}{A description of the model to be fitted. This is typically a
-formula or a character string using \code{lavaan} syntax (e.g., \code{Y ~ M + X}).}
+\item{model}{A character string specifying the mediation model to be
+fitted. The model should be specified using the syntax
+\code{"Y ~ X1 + X2 | M1 + M2"}, where \code{Y}, \code{X1},
+\code{X2}, \code{M1}, and \code{M2} should be replaced by the names of the
+corresponding variables in the dataset.}
 
 \item{dataset}{A \code{data.frame} containing the variables specified in the model.}
 
@@ -37,24 +40,38 @@ Run \code{parms <- run_parms_wizard()} to see the required structure.}
 \item{advanced}{Character. Use \code{"interactive"} for an interactive wizard
 to choose parameter distributions, or leave \code{NULL} for defaults.}
 
-\item{a.pip.hyperalpha, a.pip.hyperbeta}{Numeric scalar or vector. Alpha and
-beta parameters for the Beta hyperprior of the \eqn{a} path inclusion
-probabilities. By default, a Beta distribution is used. The default value is 3.}
+\item{a.pip.hyperalpha}{Numeric scalar or vector. Alpha hyperparameter of
+the Beta prior distribution for the \eqn{a}-path inclusion probabilities.
+The default value is 3.}
 
-\item{b.pip.hyperalpha, b.pip.hyperbeta}{Numeric scalar or vector. Alpha and
-beta parameters for the Beta hyperprior of the \eqn{b} path inclusion
-probabilities. By default, a Beta distribution is used. The default value is 3.}
+\item{a.pip.hyperbeta}{Numeric scalar or vector. Beta hyperparameter of
+the Beta prior distribution for the \eqn{a}-path inclusion probabilities.
+The default value is 3.}
 
-\item{direct.coef.mean, direct.coef.precision}{Numeric scalar or vector.
-Mean and precision parameters for the Normal prior of the direct effects
-(\eqn{c'}). By default, a Normal distribution is used. The default values
-are 0 and 1.0E-6, respectively.}
+\item{b.pip.hyperalpha}{Numeric scalar or vector. Alpha hyperparameter of
+the Beta prior distribution for the \eqn{b}-path inclusion probabilities.
+The default value is 3.}
+
+\item{b.pip.hyperbeta}{Numeric scalar or vector. Beta hyperparameter of
+the Beta prior distribution for the \eqn{b}-path inclusion probabilities.
+The default value is 3.}
+
+\item{direct.coef.mean}{Numeric scalar or vector. Mean parameter of the
+Normal prior distribution for the direct effects (\eqn{c'}). The default
+value is 0.}
+
+\item{direct.coef.precision}{Numeric scalar or vector. Precision parameter
+of the Normal prior distribution for the direct effects (\eqn{c'}). The
+default value is 1.0E-6.}
 
 \item{direct.coef.init}{Numeric or \code{NULL}. Initial value for the direct
 effect (\eqn{c'}). Default is 0.}
 
-\item{a.pip.hyperprior.init, b.pip.hyperprior.init}{Numeric or \code{NULL}.
-Initial inclusion probabilities (PIP). Default is 0.5.}
+\item{a.pip.hyperprior.init}{Numeric or \code{NULL}. Initial value of the
+\eqn{a}-path inclusion probability (PIP). The default value is 0.5.}
+
+\item{b.pip.hyperprior.init}{Numeric or \code{NULL}. Initial value of the
+\eqn{b}-path inclusion probability (PIP). The default value is 0.5.}
 
 \item{n_chains}{Integer. Number of MCMC chains.}
 
@@ -67,13 +84,12 @@ Initial inclusion probabilities (PIP). Default is 0.5.}
 \item{thin}{Integer. Thinning interval.}
 }
 \value{
-An object of class \code{mcmc.list} containing posterior samples.
+A matrix of posterior summary statistics for the monitored
+parameters.
 }
 \description{
-This function implements variable selection for mediators when dealing with
-binary data. It utilizes a latent probit link formulation to model the
-probabilities of the binary responses within the JAGS framework. It automates
-data preparation, JAGS model construction, and MCMC sampling.
+This function selects time-invariant binary mediators using the generalized
+two-stage exploratory Bayesian mediation model with dichotomous dependent variables.
 }
 \details{
 Fits a Bayesian mediation model specifically designed for cases where both

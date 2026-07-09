@@ -1,41 +1,52 @@
-#' Fit Bayesian Mediation Model (Binary M & Binary Y)
+#' Select binary mediators using the GT-exploratory Bayesian mediation model with dichotomous dependent variables.
 #'
 #' Fits a Bayesian mediation model specifically designed for cases where both
 #' the mediators (\eqn{M}) and the outcome variable (\eqn{Y}) are binary (0/1).
 #'
 #' @description
-#' This function implements variable selection for mediators when dealing with
-#' binary data. It utilizes a latent probit link formulation to model the
-#' probabilities of the binary responses within the JAGS framework. It automates
-#' data preparation, JAGS model construction, and MCMC sampling.
+#' This function selects time-invariant binary mediators using the generalized
+#' two-stage exploratory Bayesian mediation model with dichotomous dependent variables.
 #'
 #' @note This function is strictly for binary data. For variables with more than
 #' two levels, please convert them into dummy variables or ensure they
 #' are binary before running.
 #'
-#' @param model A description of the model to be fitted. This is typically a
-#' formula or a character string using \code{lavaan} syntax (e.g., \code{Y ~ M + X}).
+#' @param model A character string specifying the mediation model to be
+#' fitted. The model should be specified using the syntax
+#' \code{"Y ~ X1 + X2 | M1 + M2"}, where \code{Y}, \code{X1},
+#' \code{X2}, \code{M1}, and \code{M2} should be replaced by the names of the
+#' corresponding variables in the dataset.
 #' @param dataset A \code{data.frame} containing the variables specified in the model.
 #' @param my_prior Optional \code{data.frame} containing custom prior specifications.
 #' Run \code{parms <- run_parms_wizard()} to see the required structure.
 #' @param advanced Character. Use \code{"interactive"} for an interactive wizard
 #' to choose parameter distributions, or leave \code{NULL} for defaults.
 #'
-#' @param a.pip.hyperalpha,a.pip.hyperbeta Numeric scalar or vector. Alpha and
-#' beta parameters for the Beta hyperprior of the \eqn{a} path inclusion
-#' probabilities. By default, a Beta distribution is used. The default value is 3.
-#' @param b.pip.hyperalpha,b.pip.hyperbeta Numeric scalar or vector. Alpha and
-#' beta parameters for the Beta hyperprior of the \eqn{b} path inclusion
-#' probabilities. By default, a Beta distribution is used. The default value is 3.
-#' @param direct.coef.mean,direct.coef.precision Numeric scalar or vector.
-#' Mean and precision parameters for the Normal prior of the direct effects
-#' (\eqn{c'}). By default, a Normal distribution is used. The default values
-#' are 0 and 1.0E-6, respectively.
+#' @param a.pip.hyperalpha Numeric scalar or vector. Alpha hyperparameter of
+#' the Beta prior distribution for the \eqn{a}-path inclusion probabilities.
+#' The default value is 3.
+#' @param a.pip.hyperbeta Numeric scalar or vector. Beta hyperparameter of
+#' the Beta prior distribution for the \eqn{a}-path inclusion probabilities.
+#' The default value is 3.
+#' @param b.pip.hyperalpha Numeric scalar or vector. Alpha hyperparameter of
+#' the Beta prior distribution for the \eqn{b}-path inclusion probabilities.
+#' The default value is 3.
+#' @param b.pip.hyperbeta Numeric scalar or vector. Beta hyperparameter of
+#' the Beta prior distribution for the \eqn{b}-path inclusion probabilities.
+#' The default value is 3.
+#' @param direct.coef.mean Numeric scalar or vector. Mean parameter of the
+#' Normal prior distribution for the direct effects (\eqn{c'}). The default
+#' value is 0.
+#' @param direct.coef.precision Numeric scalar or vector. Precision parameter
+#' of the Normal prior distribution for the direct effects (\eqn{c'}). The
+#' default value is 1.0E-6.
 #'
 #' @param direct.coef.init Numeric or \code{NULL}. Initial value for the direct
 #' effect (\eqn{c'}). Default is 0.
-#' @param a.pip.hyperprior.init,b.pip.hyperprior.init Numeric or \code{NULL}.
-#' Initial inclusion probabilities (PIP). Default is 0.5.
+#' @param a.pip.hyperprior.init Numeric or \code{NULL}. Initial value of the
+#' \eqn{a}-path inclusion probability (PIP). The default value is 0.5.
+#' @param b.pip.hyperprior.init Numeric or \code{NULL}. Initial value of the
+#' \eqn{b}-path inclusion probability (PIP). The default value is 0.5.
 #'
 #' @param n_chains Integer. Number of MCMC chains.
 #' @param n_adapt Integer. Number of adaptation iterations.
@@ -43,7 +54,8 @@
 #' @param n_iter Integer. Number of post-burn-in iterations.
 #' @param thin Integer. Thinning interval.
 #'
-#' @return An object of class \code{mcmc.list} containing posterior samples.
+#' @return A matrix of posterior summary statistics for the monitored
+#' parameters.
 #'
 #' @details
 #' Since both \eqn{M} and \eqn{Y} are binary, residual precisions are not
