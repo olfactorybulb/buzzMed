@@ -1,8 +1,10 @@
-#' Single Spike Data
+#' Time-averaged neural spiking data.
 #'
-#' A simulated dataset for demonstrating Bayesian mediation analysis.
+#' Time-averaged neural spiking data, where neural activities are summarized
+#' as the average rate of action potentials over the observation period,
+#' yielding a single value for each neuron or recording.
 #'
-#' @format A data frame with 300 rows and 22 variables:
+#' @format A data frame with 300 observations and 22 variables:
 #' \describe{
 #'   \item{x}{Predictor variable.}
 #'   \item{m1}{Candidate mediator 1.}
@@ -33,13 +35,14 @@
 #'
 #' @usage data(singlespikes)
 #'
-#' @source Simulated data included with the \pkg{buzzMed} package.
+#' @source Time-averaged neural spiking data included with the \pkg{buzzMed} package.
 "singlespikes"
 
-#' Long Spike Data
+#' A subset of longitudinal spike train data.
 #'
-#' A simulated longitudinal dataset for demonstrating Bayesian mediation
-#' analysis with repeated measurements.
+#' A subset of spike train data with a time-indexed sequence of neural action
+#' potentials, where each spike is represented as a single event occurring at
+#' its recorded time.
 #'
 #' @format A numeric array with dimensions 300 × 25 × 21:
 #' \describe{
@@ -59,59 +62,68 @@
 #'
 #' @usage data(sublongspikes)
 #'
-#' @source Simulated data included with the \pkg{buzzMed} package.
+#' @source Longitudinal spiking train data included with the \pkg{buzzMed} package.
 "sublongspikes"
 
-#' Binarized Framing Dataset
+#' Modified framing dataset with some dichotomization
 #'
 #' A modified version of the \code{framing} dataset from the
 #' \pkg{mediation} package, originally based on the study by
-#' Brader, Valentino, and Suhay (2008). The candidate mediators have
-#' been dichotomized for use with the binary mediator models implemented
-#' in \pkg{buzzMed}. The dataset contains 265 observations and 10 variables.
+#' Brader, Valentino, and Suhay (2008). The candidate mediators have been
+#' dichotomized relative to the original \code{framing} dataset. The dataset
+#' contains 265 observations and 10 variables.
 #'
-#' @format A data frame with 265 rows and 10 variables:
+#' @format A data frame with 265 observations and 10 variables:
 #' \describe{
-#'   \item{tone}{Binary treatment indicator denoting whether the news story
-#'   was framed positively or negatively. Can be used as a predictor.}
+#'   \item{tone}{Binary variable denoting whether the news story
+#'   was framed positively(\code{tone}=0) or negatively(\code{tone}=1).}
 #'
-#'   \item{eth}{Binary treatment indicator denoting whether the news story
-#'   featured a Latino or European immigrant. Can be used as a predictor.}
+#'   \item{eth}{Binary variable denoting whether the news story
+#'   featured a Latino(\code{eth}=1) or European immigrant(\code{eth}=0).}
 #'
-#'   \item{treat}{Interaction of \code{tone} and \code{eth}. In the original
-#'   study, this interaction represented the significant treatment effect.
-#'   Can be used as a predictor.}
+#'   \item{treat}{Binary variable indicating the interaction between
+#'   \code{tone} and \code{eth}. A value of 1 indicates a negatively framed
+#'   news story featuring a Latino immigrant, whereas a value of 0 indicates
+#'   any other treatment combination.}
 #'
-#'   \item{emo}{Binary indicator of negative emotional response. A value of
-#'   1 indicates an original score of 7 or lower, corresponding to stronger
-#'   negative emotion. Can be used as a candidate mediator.}
+#'   \item{negaff}{Binary measure of subjects' negative feelings during the experiment.
+#'   This variable is derived from the \code{emo} variable in the original
+#'   \code{framing} dataset. A value of 1 indicates an original score of 3--7,
+#'   corresponding to stronger negative emotions, whereas a value of 0 indicates
+#'   an original score of 8--12.}
 #'
-#'   \item{p_harm}{Binary indicator of perceived harm caused by increased
-#'   immigration. A value of 1 indicates an original score of 6 or higher,
-#'   corresponding to greater perceived harm. Can be used as a candidate
-#'   mediator.}
+#'   \item{pharm}{Binary measure of subjects' perceived harm caused by increased
+#'   immigration. This variable is derived from the \code{p_harm} variable in
+#'   the original \code{framing} dataset. A value of 1 indicates an original
+#'   score of 6--8, whereas a value of 0 indicates a score of 2--5.}
 #'
-#'   \item{immigr}{Binary indicator derived from the original four-point
-#'   immigration attitude scale. A value of 1 indicates an original score
-#'   of 3 or 4, corresponding to more negative attitudes toward increased
-#'   immigration. Can be used as a candidate mediator.}
+#'   \item{immigr}{Binary variable derived from the original four-point scale
+#'   measuring subjects' attitudes toward increased immigration. A value of 1
+#'   indicates an original score of 3 or 4, corresponding to more negative
+#'   attitudes toward increased immigration. A value of 0 indicates an original
+#'   score of 1 or 2.}
 #'
-#'   \item{anx}{Binary indicator derived from the original four-point anxiety
-#'   scale. A value of 1 indicates respondents who reported being
-#'   ``very anxious'' or ``somewhat anxious'' about increased immigration.
-#'   Can be used as a candidate mediator.}
+#'   \item{anx}{Binary variable derived from the original four-point scale
+#'   measuring subjects' anxiety about increased immigration. A value of 1
+#'   indicates respondents who reported being ``very anxious'' or
+#'   ``somewhat anxious'' about increased immigration. A value of 0 indicates
+#'   respondents who reported being ``a little anxious`` or ``not anxious at all``.}
 #'
-#'   \item{english}{Binary indicator derived from the original four-point
+#'   \item{english}{Binary variable derived from the original four-point
 #'   scale measuring support for making English the official language of the
 #'   United States. A value of 1 indicates respondents who selected
-#'   ``Favor'' or ``Strongly Favor.'' Can be used as a candidate mediator.}
+#'   ``Favor`` or ``Strongly Favor``. A value of 0 indicates respondents who
+#'   selected ``Oppose`` or ``Strongly Oppose``.}
 #'
-#'   \item{cong_mesg}{Binary outcome indicating whether the respondent
+#'   \item{cong_mesg}{Binary variable indicating whether the respondent
 #'   requested that an anti-immigration message be sent to Congress on
-#'   their behalf.}
+#'   their behalf. A value of 1 indicates that the subject chose to send the
+#'   message, whereas a value of 0 indicates that the subject did not.}
 #'
 #'   \item{anti_info}{Binary outcome indicating whether the respondent
-#'   requested additional information from anti-immigration organizations.}
+#'   requested additional information from anti-immigration organizations.
+#'   A value of 1 indicates that the subject chose to send the message,
+#'   whereas a value of 0 indicates that the subject did not.}
 #' }
 #'
 #' @references
