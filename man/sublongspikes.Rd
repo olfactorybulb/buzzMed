@@ -3,7 +3,7 @@
 \docType{data}
 \name{sublongspikes}
 \alias{sublongspikes}
-\title{Long Spike Data}
+\title{A subset of longitudinal spike train data.}
 \format{
 A numeric array with dimensions 300 × 25 × 21:
 \describe{
@@ -14,14 +14,15 @@ A numeric array with dimensions 300 × 25 × 21:
 }
 }
 \source{
-Simulated data included with the \pkg{buzzMed} package.
+Longitudinal spiking train data included with the \pkg{buzzMed} package.
 }
 \usage{
 data(sublongspikes)
 }
 \description{
-A simulated longitudinal dataset for demonstrating Bayesian mediation
-analysis with repeated measurements.
+A subset of spike train data with a time-indexed sequence of neural action
+potentials, where each spike is represented as a single event occurring at
+its recorded time.
 }
 \details{
 The third dimension stores the variables in the following order:
