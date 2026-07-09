@@ -29,8 +29,7 @@ viewing and modifying Bayesian prior distributions for mediation models.
 
 The wizard handles two main types of customization:
 \itemize{
-  \item \strong{Distribution Selection:} Choose from supported JAGS
-  distributions.
+  \item \strong{Distribution Selection:} Choose from supported probabilistic distributions.
   \item \strong{Argument Specification:} Set numeric values for
   hyperparameters (e.g., shape, rate, mean, precision).
 }
