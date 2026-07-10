@@ -2,14 +2,14 @@
 # Setup Dummy Data for Testing
 # ==============================================================================
 
-# Dimensions: N = 5 subjects, T = 3 timepoints, S = 4 slices/variables
+# Dimensions: N = 5 subjects, T = 3 timepoints, K = 4 slices/variables
 set.seed(42)
 N <- 5
 Tv <- 3
-S <- 4
+K <- 4
 
 # Format A: 3-D Numeric Array
-dummy_array <- array(rnorm(N * Tv * S), dim = c(N, Tv, S))
+dummy_array <- array(rnorm(N * Tv * K), dim = c(N, Tv, K))
 
 # Format B: Named List of Matrices
 dummy_list <- list(
@@ -143,29 +143,29 @@ test_that("longBMed catches Data Frame structural requirements", {
 test_that("Internal formula parsers correctly identify constraints and syntax errors", {
 
   # Test index string validation issues
-  expect_error(.parse_index_formula("10 ~ 1+2", S=10), "must contain '\\|'")
-  expect_error(.parse_index_formula("10 1+2 | 3", S=10), "must contain '~'")
-  expect_error(.parse_index_formula("10+11 ~ 1 | 2", S=12), "must resolve to exactly one slice index")
+  expect_error(.parse_index_formula("10 ~ 1+2", K=10), "must contain '\\|'")
+  expect_error(.parse_index_formula("10 1+2 | 3", K=10), "must contain '~'")
+  expect_error(.parse_index_formula("10+11 ~ 1 | 2", K=12), "must resolve to exactly one slice index")
 
   # Cross-role assignment error checking
-  expect_error(.parse_index_formula("3 ~ 1+3 | 4:5", S=10), "appear in both Y and X")
-  expect_error(.parse_index_formula("3 ~ 1+2 | 3:5", S=10), "appear in both Y and M")
-  expect_error(.parse_index_formula("3 ~ 1+4 | 4:5", S=10), "appear in both X and M")
+  expect_error(.parse_index_formula("3 ~ 1+3 | 4:5", K=10), "appear in both Y and X")
+  expect_error(.parse_index_formula("3 ~ 1+2 | 3:5", K=10), "appear in both Y and M")
+  expect_error(.parse_index_formula("3 ~ 1+4 | 4:5", K=10), "appear in both X and M")
 
   # Syntax expanding bugs
-  expect_error(.expand_index_expr("1:5:9", S=10), "Invalid range")
-  expect_error(.expand_index_expr("5:1", S=10), "start > end")
-  expect_error(.expand_index_expr("abc", S=10), "Non-integer token")
-  expect_error(.expand_index_expr("11", S=10), "Slice index/indices out of bounds")
+  expect_error(.expand_index_expr("1:5:9", K=10), "Invalid range")
+  expect_error(.expand_index_expr("5:1", K=10), "start > end")
+  expect_error(.expand_index_expr("abc", K=10), "Non-integer token")
+  expect_error(.expand_index_expr("11", K=10), "Slice index/indices out of bounds")
 
   # Test that duplicate within-role indices are successfully
   # handled and deduplicated by the parsing logic
-  parsed <- .parse_index_formula("4 ~ 1+1 | 2:3", S = 5)
+  parsed <- .parse_index_formula("4 ~ 1+1 | 2:3", K = 5)
   expect_equal(parsed$x_idx, 1L)
 
   # Check informational messages for unassigned slices
   expect_message(
-    .parse_index_formula("4 ~ 1 | 2", S=5),
+    .parse_index_formula("4 ~ 1 | 2", K=5),
     "Note: slice\\(s\\) 3, 5 were not assigned"
   )
 })
