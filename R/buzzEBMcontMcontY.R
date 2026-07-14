@@ -1,7 +1,8 @@
 #' Select continuous mediators using the GT-exploratory Bayesian mediation model with continuous dependent variables.
 #'
-#' Fits a Bayesian mediation model specifically designed for cases where both
-#' the mediators (\eqn{M}) and the outcome variable (\eqn{Y}) are continuous.
+#' Fits a generalized two-stage exploratory Bayesian mediation model, specifically
+#' designed for cases where both the mediators (\eqn{M}) and the outcome variable
+#'  (\eqn{Y}) are continuous.
 #'
 #' @description
 #' This function selects time-invariant continuous mediators using the generalized

@@ -1,7 +1,8 @@
 #' Select binary mediators using the GT-exploratory Bayesian mediation model with dichotomous dependent variables.
 #'
-#' Fits a Bayesian mediation model specifically designed for cases where both
-#' the mediators (\eqn{M}) and the outcome variable (\eqn{Y}) are binary (0/1).
+#' Fits a generalized two-stage exploratory Bayesian mediation model, specifically
+#' designed for cases where both the mediators (\eqn{M}) and the outcome
+#' variable (\eqn{Y}) are binary (0/1).
 #'
 #' @description
 #' This function selects time-invariant binary mediators using the generalized

@@ -105,9 +105,9 @@ This function selects time-invariant binary mediators using the generalized
 two-stage exploratory Bayesian mediation model with continuous dependent variables.
 }
 \details{
-Fits a Bayesian mediation model specifically designed for cases where
-the mediators (\eqn{M}) are binary (0/1) and the outcome variable (\eqn{Y})
-is continuous.
+Fits a generalized two-stage exploratory Bayesian mediation model,
+specifically designed for cases where the mediators (\eqn{M}) are
+binary (0/1) and the outcome variable (\eqn{Y}) is continuous.
 }
 \examples{
 # Mixed case: Binary M, Continuous Y

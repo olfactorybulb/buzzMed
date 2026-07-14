@@ -7,55 +7,52 @@
 \format{
 A data frame with 265 observations and 10 variables:
 \describe{
-  \item{tone}{Binary variable denoting whether the news story
-  was framed positively(\code{tone}=0) or negatively(\code{tone}=1).}
+  \item{tone}{Unchanged from the original \code{framing} dataset.
+  1st treatment; whether the news story is framed positively or negatively. }
 
-  \item{eth}{Binary variable denoting whether the news story
-  featured a Latino(\code{eth}=1) or European immigrant(\code{eth}=0).}
+  \item{eth}{Unchanged from the original \code{framing} dataset.
+  2nd treatment; whether the news story features a Latino or European immigrant.}
 
-  \item{treat}{Binary variable indicating the interaction between
-  \code{tone} and \code{eth}. A value of 1 indicates a negatively framed
-  news story featuring a Latino immigrant, whereas a value of 0 indicates
-  any other treatment combination.}
+  \item{treat}{Unchanged from the original \code{framing} dataset.
+  Product of the two treatment variables. In the original study the authors
+  only find this cell to be significant.}
 
-  \item{negaff}{Binary variable of subjects' negative feelings during the experiment.
-  This variable is derived from the \code{emo} variable in the original
-  \code{framing} dataset. A value of 1 indicates an original score of 3--7,
+  \item{neg_emo}{Recoded from the \code{emo} variable in the original
+  \code{framing} dataset. Binary variable of subjects' negative feelings
+  during the experiment. A value of 1 indicates an original score of 3--7,
   corresponding to stronger negative emotions, whereas a value of 0 indicates
   an original score of 8--12.}
 
-  \item{pharm}{Binary variable of subjects' perceived harm caused by increased
-  immigration. This variable is derived from the \code{p_harm} variable in
-  the original \code{framing} dataset. A value of 1 indicates an original
+  \item{perc_harm}{Recoded from the \code{p_harm} variable in the original
+  \code{framing} dataset. Binary variable of subjects' perceived harm
+  caused by increased immigration.  A value of 1 indicates an original
   score of 6--8, whereas a value of 0 indicates a score of 2--5.}
 
-  \item{immigr}{Binary variable derived from the original four-point scale
+  \item{immigr}{Recoded binary variable derived from the original four-point scale
   measuring subjects' attitudes toward increased immigration. A value of 1
   indicates an original score of 3 or 4, corresponding to more negative
   attitudes toward increased immigration. A value of 0 indicates an original
   score of 1 or 2.}
 
-  \item{anx}{Binary variable derived from the original four-point scale
+  \item{anx}{Recoded binary variable derived from the original four-point scale
   measuring subjects' anxiety about increased immigration. A value of 1
   indicates respondents who reported being ``very anxious'' or
   ``somewhat anxious'' about increased immigration. A value of 0 indicates
   respondents who reported being ``a little anxious`` or ``not anxious at all``.}
 
-  \item{english}{Binary variable derived from the original four-point
+  \item{english}{Recoded binary variable derived from the original four-point
   scale measuring support for making English the official language of the
   United States. A value of 1 indicates respondents who selected
   ``Favor`` or ``Strongly Favor``. A value of 0 indicates respondents who
   selected ``Oppose`` or ``Strongly Oppose``.}
 
-  \item{cong_mesg}{Binary variable indicating whether the respondent
-  requested that an anti-immigration message be sent to Congress on
-  their behalf. A value of 1 indicates that the subject chose to send the
-  message, whereas a value of 0 indicates that the subject did not.}
+  \item{cong_mesg}{Unchanged from the original \code{framing} dataset.
+  Whether subjects requested sending an anti-immigration message to
+  Congress on their behalf.}
 
-  \item{anti_info}{Binary variable indicating whether the respondent
-  requested additional information from anti-immigration organizations.
-  A value of 1 indicates that the subject chose to send the message,
-  whereas a value of 0 indicates that the subject did not.}
+  \item{anti_info}{Unchanged from the original \code{framing} dataset.
+  Whether subjects wanted to receive information from anti-immigration
+  organizations.}
 }
 }
 \source{

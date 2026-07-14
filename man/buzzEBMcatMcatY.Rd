@@ -92,8 +92,9 @@ This function selects time-invariant binary mediators using the generalized
 two-stage exploratory Bayesian mediation model with dichotomous dependent variables.
 }
 \details{
-Fits a Bayesian mediation model specifically designed for cases where both
-the mediators (\eqn{M}) and the outcome variable (\eqn{Y}) are binary (0/1).
+Fits a generalized two-stage exploratory Bayesian mediation model, specifically
+designed for cases where both the mediators (\eqn{M}) and the outcome
+variable (\eqn{Y}) are binary (0/1).
 }
 \note{
 This function is strictly for binary data. For variables with more than
