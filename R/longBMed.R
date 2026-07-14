@@ -5,7 +5,8 @@
 #'
 #' The model supports one or more predictor variables (X), one or more
 #' candidate mediators (M), and exactly one outcome variable (Y). Data may be
-#' supplied in any of three formats (see Details).
+#' supplied as an \eqn{N \times T \times K} numeric array, a named list
+#' of \eqn{N \times T} matrices, or a data frame in long format.
 #'
 #' @param model Specifies how variables are assigned to the outcome(Y),
 #'   predictor(s)(X), and candidate mediator(s) (M).
@@ -51,7 +52,7 @@
 #'   deviations, and standard errors for \code{ind.joint} and \code{ind.p}.
 #'
 #' @details
-#' #' For a named list or long-format data frame, the model can be specified using
+#' For a named list or long-format data frame, the model can be specified using
 #' variable names, such as \code{"Y ~ X1 + X2 | M1 + M2"}.
 #'
 #' For a 3-D array, the model can be specified using integer slice indices,
@@ -509,7 +510,7 @@ return(summary(output)$statistics)
   omitted  <- setdiff(seq_len(K), assigned)
   if (length(omitted) > 0)
     message(
-      "Note: slice(k) ", paste(omitted, collapse = ", "),
+      "Note: slice(s) ", paste(omitted, collapse = ", "),
       " were not assigned to any role (Y, X, or M) and will be ignored."
     )
 

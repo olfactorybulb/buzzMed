@@ -121,11 +121,6 @@ two-stage exploratory Bayesian mediation model with continuous dependent variabl
 \details{
 Fits a Bayesian mediation model specifically designed for cases where both
 the mediators (\eqn{M}) and the outcome variable (\eqn{Y}) are continuous.
-
-
-This function is a specific "worker" function. It identifies \eqn{X, M, Y}
-via \code{.parse_buzz_syntax} and performs Bayesian estimation assuming:
-\eqn{M \sim Normal(\dots)} and \eqn{Y \sim Normal(\dots)}.
 }
 \examples{
 # 1. Create a continuous synthetic dataset

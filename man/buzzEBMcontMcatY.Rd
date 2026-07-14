@@ -109,12 +109,6 @@ two-stage exploratory Bayesian mediation model with dichotomous dependent variab
 Fits a Bayesian mediation model specifically designed for cases where
 the mediators (\eqn{M}) are continuous and the outcome variable (\eqn{Y})
 is binary (0/1).
-
-
-This function is a specific "worker" function. It identifies \eqn{X, M, Y}
-via \code{.parse_buzz_syntax}. While \eqn{M} is modeled with residual
-precision parameters, \eqn{Y} is binary and thus its residual precision
-is fixed to 1 within the latent variable framework.
 }
 \examples{
 # Mixed case: Continuous M, Binary Y

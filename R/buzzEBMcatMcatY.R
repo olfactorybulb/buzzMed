@@ -57,13 +57,6 @@
 #' @return A matrix of posterior summary statistics for the monitored
 #' parameters.
 #'
-#' @details
-#' Since both \eqn{M} and \eqn{Y} are binary, residual precisions are not
-#' estimated (they are fixed to 1 in the latent probit space).
-#' This function identifies \eqn{X, M, Y} via \code{.parse_buzz_syntax}
-#' and routes the data through an internal pipeline including
-#' \code{\link{prepare_ebmed_data}} and \code{build_ebmed_model_mcat_ycat}.
-#'
 #' @references
 #' Shi, D., Shi, D., and Fairchild, A. J. (2023) "Variable Selection for Mediators
 #' under a Bayesian Mediation Model" <doi:10.1080/10705511.2022.2164285>

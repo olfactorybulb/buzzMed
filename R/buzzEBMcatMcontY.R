@@ -61,12 +61,6 @@
 #' @return A matrix of posterior summary statistics for the monitored
 #' parameters.
 #'
-#' @details
-#' This function is a specific "worker" function. It identifies \eqn{X, M, Y}
-#' via \code{.parse_buzz_syntax}. While \eqn{Y} is modeled with residual
-#' precision parameters, the mediators \eqn{M} are binary and thus their
-#' residual precisions are fixed to 1 within the latent variable framework.
-#'
 #' @references
 #' Shi, D., Shi, D., and Fairchild, A. J. (2023) "Variable Selection for Mediators
 #' under a Bayesian Mediation Model" <doi:10.1080/10705511.2022.2164285>

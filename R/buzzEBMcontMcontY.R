@@ -68,11 +68,6 @@
 #' @return A matrix of posterior summary statistics for the monitored
 #' parameters.
 #'
-#' @details
-#' This function is a specific "worker" function. It identifies \eqn{X, M, Y}
-#' via \code{.parse_buzz_syntax} and performs Bayesian estimation assuming:
-#' \eqn{M \sim Normal(\dots)} and \eqn{Y \sim Normal(\dots)}.
-#'
 #' @references
 #' Shi, D., Shi, D., and Fairchild, A. J. (2023) "Variable Selection for Mediators
 #' under a Bayesian Mediation Model" <doi:10.1080/10705511.2022.2164285>

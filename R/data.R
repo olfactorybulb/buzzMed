@@ -86,13 +86,13 @@
 #'   news story featuring a Latino immigrant, whereas a value of 0 indicates
 #'   any other treatment combination.}
 #'
-#'   \item{negaff}{Binary measure of subjects' negative feelings during the experiment.
+#'   \item{negaff}{Binary variable of subjects' negative feelings during the experiment.
 #'   This variable is derived from the \code{emo} variable in the original
 #'   \code{framing} dataset. A value of 1 indicates an original score of 3--7,
 #'   corresponding to stronger negative emotions, whereas a value of 0 indicates
 #'   an original score of 8--12.}
 #'
-#'   \item{pharm}{Binary measure of subjects' perceived harm caused by increased
+#'   \item{pharm}{Binary variable of subjects' perceived harm caused by increased
 #'   immigration. This variable is derived from the \code{p_harm} variable in
 #'   the original \code{framing} dataset. A value of 1 indicates an original
 #'   score of 6--8, whereas a value of 0 indicates a score of 2--5.}
@@ -120,7 +120,7 @@
 #'   their behalf. A value of 1 indicates that the subject chose to send the
 #'   message, whereas a value of 0 indicates that the subject did not.}
 #'
-#'   \item{anti_info}{Binary outcome indicating whether the respondent
+#'   \item{anti_info}{Binary variable indicating whether the respondent
 #'   requested additional information from anti-immigration organizations.
 #'   A value of 1 indicates that the subject chose to send the message,
 #'   whereas a value of 0 indicates that the subject did not.}

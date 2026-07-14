@@ -94,13 +94,6 @@ two-stage exploratory Bayesian mediation model with dichotomous dependent variab
 \details{
 Fits a Bayesian mediation model specifically designed for cases where both
 the mediators (\eqn{M}) and the outcome variable (\eqn{Y}) are binary (0/1).
-
-
-Since both \eqn{M} and \eqn{Y} are binary, residual precisions are not
-estimated (they are fixed to 1 in the latent probit space).
-This function identifies \eqn{X, M, Y} via \code{.parse_buzz_syntax}
-and routes the data through an internal pipeline including
-\code{\link{prepare_ebmed_data}} and \code{build_ebmed_model_mcat_ycat}.
 }
 \note{
 This function is strictly for binary data. For variables with more than
