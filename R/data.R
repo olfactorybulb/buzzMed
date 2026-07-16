@@ -77,10 +77,10 @@
 #' @format A data frame with 265 observations and 10 variables:
 #' \describe{
 #'   \item{tone}{From the original \code{framing} dataset.
-#'   1st treatment; whether the news story is framed positively or negatively. }
+#'   First treatment; whether the news story is framed positively or negatively. }
 #'
 #'   \item{eth}{From the original \code{framing} dataset.
-#'   2nd treatment; whether the news story features a Latino or European immigrant.}
+#'   Second treatment; whether the news story features a Latino or European immigrant.}
 #'
 #'   \item{treat}{From the original \code{framing} dataset.
 #'   Product of the two treatment variables. In the original study the authors
@@ -112,7 +112,7 @@
 #'
 #'   \item{english2}{Recoded from the \code{english} variable in the original
 #'   \code{framing} dataset. Binary variable measuring support for making
-#'   English the official language of theUnited States. A value of 1 indicates
+#'   English the official language of the United States. A value of 1 indicates
 #'   respondents who selected ``Favor'' or ``Strongly Favor''.
 #'   A value of 0 indicates respondents who selected ``Oppose''
 #'   or ``Strongly Oppose''.}
