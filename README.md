@@ -44,7 +44,7 @@ library(buzzMed)
 
 ## Main Functions
 
-### Exploratory Bayesian Mediation
+### Generalized Two-stage(GT) exploratory Bayesian mediation model
 
 The package provides four functions for exploratory Bayesian mediation analysis based on the mediator and outcome variable types.
 
@@ -63,7 +63,7 @@ The package provides four functions for exploratory Bayesian mediation analysis 
 
 ## Example Usage
 
-### Exploratory Bayesian Mediation
+### GT-Exploratory Bayesian Mediation
 
 ```r
 library(buzzMed)
@@ -76,12 +76,9 @@ my_data <- data.frame(
   MyOutcome = rnorm(30)
 )
 
-# Specify the mediation model
-model_string <- "MyOutcome ~ MyPredictor | MyMediator1 + MyMediator2"
-
 # Fit the model
 fit <- buzzEBMcontMcontY(
-  model = model_string,
+  model = "MyOutcome ~ MyPredictor | MyMediator1 + MyMediator2",
   dataset = my_data
 )
 ```
@@ -95,7 +92,14 @@ library(buzzMed)
 data(sublongspikes)
 
 # Fit the longitudinal Bayesian mediation model
-results <- longBMed(data = sublongspikes)
+# For model specification, slice 1 is the predictor, slices 2--20 are candidate mediators, and slice 21 is the outcome.
+# n.burnin and n.iter are optional arguments
+results <- longBMed(
+  model = "21 ~ 1 | 2:20",
+  data = sublongspikes,
+  n.burnin = 100,
+  n.iter = 500
+)
 
 summary(results)
 ```
@@ -106,6 +110,7 @@ summary(results)
 
 - `singlespikes`: Cross-sectional mediation dataset containing one predictor, nineteen candidate mediators, and one outcome.
 - `sublongspikes`: Longitudinal mediation dataset stored as a three-dimensional array for repeated-measures analysis with `longBMed()`.
+- `framing2`: A modified version of the `framing` dataset from the `mediation` package containing dichotomized candidate mediators for demonstrating the GT-exploratory Bayesian mediation functions.
 
 ---
 

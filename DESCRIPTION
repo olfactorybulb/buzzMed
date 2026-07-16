@@ -5,8 +5,8 @@ Title: Bayesian Understanding for Mediator Selection Framework
 Authors@R: c(
     person("Dingjing", "Shi", email = "dshi32@gatech.edu", role = c("aut", "cre")),
     person("Tansu", "Celikel", role = "aut"),
-    person("Dexin", "Shi", role = "aut"),
-    person("Chih-Chia", "Hsing", email = "jesscc.hsing@gmail.com", role = "aut")
+    person("Chih-Chia", "Hsing", email = "jesscc.hsing@gmail.com", role = "aut"),
+    person("Dexin", "Shi", role = "aut")
     )
 Description: A collection of quantitative tools for selecting mediating effects within exploratory Bayesian mediation models. The package accommodates both continuous and dichotomous outcomes, including the dependent variables and the mediators for identifying and analyzing mediation pathways.
 License: GPL (>= 3)
