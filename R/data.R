@@ -1,10 +1,10 @@
-#' Time-averaged neural spiking data.
+#' Rate of action potential (i.e. firing rate) across neurons and repetitions.
 #'
-#' Time-averaged neural spiking data, where neural activities are summarized
-#' as the average rate of action potentials over the observation period,
-#' yielding a single value for each neuron or recording.
+#' The average rate of action potentials over the observation period
+#' (i.e. 2500 ms) is provided per neuron (N:20) across repetitions (n: 300),
+#' yielding a single average firing rate value for each neuron.
 #'
-#' @format A data frame with 300 observations and 22 variables:
+#' @format A data frame with 300 observations and 21 variables:
 #' \describe{
 #'   \item{x}{Predictor variable.}
 #'   \item{m1}{Candidate mediator 1.}
@@ -38,11 +38,12 @@
 #' @source Time-averaged neural spiking data included with the \pkg{buzzMed} package.
 "singlespikes"
 
-#' A subset of longitudinal spike train data.
+#' A subset in time of longitudinal spike train data.
 #'
-#' A subset of spike train data with a time-indexed sequence of neural action
-#' potentials, where each spike is represented as a single event occurring at
-#' its recorded time.
+#' For each neuron across all repetitions, the time series that describe
+#' whether or not a neuron generated action potential is provided. This
+#' is a subset of the full data matrix where the temporal index starts
+#' at 1002 ms and continues until 1026 ms.
 #'
 #' @format A numeric array with dimensions 300 × 25 × 21:
 #' \describe{
@@ -75,52 +76,54 @@
 #'
 #' @format A data frame with 265 observations and 10 variables:
 #' \describe{
-#'   \item{tone}{Unchanged from the original \code{framing} dataset.
+#'   \item{tone}{From the original \code{framing} dataset.
 #'   1st treatment; whether the news story is framed positively or negatively. }
 #'
-#'   \item{eth}{Unchanged from the original \code{framing} dataset.
+#'   \item{eth}{From the original \code{framing} dataset.
 #'   2nd treatment; whether the news story features a Latino or European immigrant.}
 #'
-#'   \item{treat}{Unchanged from the original \code{framing} dataset.
+#'   \item{treat}{From the original \code{framing} dataset.
 #'   Product of the two treatment variables. In the original study the authors
 #'   only find this cell to be significant.}
 #'
-#'   \item{neg_emo}{Recoded from the \code{emo} variable in the original
+#'   \item{negemo2}{Recoded from the \code{emo} variable in the original
 #'   \code{framing} dataset. Binary variable of subjects' negative feelings
 #'   during the experiment. A value of 1 indicates an original score of 3--7,
 #'   corresponding to stronger negative emotions, whereas a value of 0 indicates
 #'   an original score of 8--12.}
 #'
-#'   \item{perc_harm}{Recoded from the \code{p_harm} variable in the original
+#'   \item{p_harm2}{Recoded from the \code{p_harm} variable in the original
 #'   \code{framing} dataset. Binary variable of subjects' perceived harm
 #'   caused by increased immigration.  A value of 1 indicates an original
 #'   score of 6--8, whereas a value of 0 indicates a score of 2--5.}
 #'
-#'   \item{immigr}{Recoded binary variable derived from the original four-point scale
-#'   measuring subjects' attitudes toward increased immigration. A value of 1
-#'   indicates an original score of 3 or 4, corresponding to more negative
-#'   attitudes toward increased immigration. A value of 0 indicates an original
-#'   score of 1 or 2.}
+#'   \item{att2}{Recoded from the \code{immigr} variable in the original
+#'   \code{framing} dataset. Binary variable measuring subjects' attitudes
+#'   toward increased immigration. A value of 1 indicates an original score
+#'   of 3 or 4, corresponding to more negative attitudes toward increased
+#'   immigration. A value of 0 indicates an original score of 1 or 2.}
 #'
-#'   \item{anx}{Recoded binary variable derived from the original four-point scale
-#'   measuring subjects' anxiety about increased immigration. A value of 1
-#'   indicates respondents who reported being ``very anxious'' or
-#'   ``somewhat anxious'' about increased immigration. A value of 0 indicates
-#'   respondents who reported being ``a little anxious`` or ``not anxious at all``.}
+#'   \item{anx2}{Recoded from the \code{anx} variable in the original
+#'   \code{framing} dataset. Binary variable measuring subjects' anxiety
+#'   about increased immigration. A value of 1 indicates respondents who
+#'   reported being ``very anxious'' or ``somewhat anxious'' about increased
+#'   immigration. A value of 0 indicates respondents who reported being
+#'   ``a little anxious'' or ``not anxious at all''.}
 #'
-#'   \item{english}{Recoded binary variable derived from the original four-point
-#'   scale measuring support for making English the official language of the
-#'   United States. A value of 1 indicates respondents who selected
-#'   ``Favor`` or ``Strongly Favor``. A value of 0 indicates respondents who
-#'   selected ``Oppose`` or ``Strongly Oppose``.}
+#'   \item{english2}{Recoded from the \code{english} variable in the original
+#'   \code{framing} dataset. Binary variable measuring support for making
+#'   English the official language of theUnited States. A value of 1 indicates
+#'   respondents who selected ``Favor'' or ``Strongly Favor''.
+#'   A value of 0 indicates respondents who selected ``Oppose''
+#'   or ``Strongly Oppose''.}
 #'
-#'   \item{cong_mesg}{Unchanged from the original \code{framing} dataset.
-#'   Whether subjects requested sending an anti-immigration message to
-#'   Congress on their behalf.}
+#'   \item{congmsg}{From the original \code{cong_mesg} variable in
+#'   the \code{framing} dataset. Whether subjects requested sending an
+#'   anti-immigration message to Congress on their behalf.}
 #'
-#'   \item{anti_info}{Unchanged from the original \code{framing} dataset.
-#'   Whether subjects wanted to receive information from anti-immigration
-#'   organizations.}
+#'   \item{info}{From the original \code{anti_info} variable in the
+#'   \code{framing} dataset. Whether subjects wanted to receive
+#'   information from anti-immigration organizations.}
 #' }
 #'
 #' @references

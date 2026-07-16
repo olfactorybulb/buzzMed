@@ -3,7 +3,7 @@
 \docType{data}
 \name{sublongspikes}
 \alias{sublongspikes}
-\title{A subset of longitudinal spike train data.}
+\title{A subset in time of longitudinal spike train data.}
 \format{
 A numeric array with dimensions 300 × 25 × 21:
 \describe{
@@ -20,9 +20,10 @@ Longitudinal spiking train data included with the \pkg{buzzMed} package.
 data(sublongspikes)
 }
 \description{
-A subset of spike train data with a time-indexed sequence of neural action
-potentials, where each spike is represented as a single event occurring at
-its recorded time.
+For each neuron across all repetitions, the time series that describe
+whether or not a neuron generated action potential is provided. This
+is a subset of the full data matrix where the temporal index starts
+at 1002 ms and continues until 1026 ms.
 }
 \details{
 The third dimension stores the variables in the following order:

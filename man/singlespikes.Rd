@@ -3,9 +3,9 @@
 \docType{data}
 \name{singlespikes}
 \alias{singlespikes}
-\title{Time-averaged neural spiking data.}
+\title{Rate of action potential (i.e. firing rate) across neurons and repetitions.}
 \format{
-A data frame with 300 observations and 22 variables:
+A data frame with 300 observations and 21 variables:
 \describe{
   \item{x}{Predictor variable.}
   \item{m1}{Candidate mediator 1.}
@@ -37,9 +37,9 @@ Time-averaged neural spiking data included with the \pkg{buzzMed} package.
 data(singlespikes)
 }
 \description{
-Time-averaged neural spiking data, where neural activities are summarized
-as the average rate of action potentials over the observation period,
-yielding a single value for each neuron or recording.
+The average rate of action potentials over the observation period
+(i.e. 2500 ms) is provided per neuron (N:20) across repetitions (n: 300),
+yielding a single average firing rate value for each neuron.
 }
 \details{
 The dataset contains one predictor, nineteen candidate mediators,
