@@ -6,27 +6,27 @@
 #'
 #' @format A data frame with 300 observations and 21 variables:
 #' \describe{
-#'   \item{x}{Predictor variable.}
-#'   \item{m1}{Candidate mediator 1.}
-#'   \item{m2}{Candidate mediator 2.}
-#'   \item{m3}{Candidate mediator 3.}
-#'   \item{m4}{Candidate mediator 4.}
-#'   \item{m5}{Candidate mediator 5.}
-#'   \item{m6}{Candidate mediator 6.}
-#'   \item{m7}{Candidate mediator 7.}
-#'   \item{m8}{Candidate mediator 8.}
-#'   \item{m9}{Candidate mediator 9.}
-#'   \item{m10}{Candidate mediator 10.}
-#'   \item{m11}{Candidate mediator 11.}
-#'   \item{m12}{Candidate mediator 12.}
-#'   \item{m13}{Candidate mediator 13.}
-#'   \item{m14}{Candidate mediator 14.}
-#'   \item{m15}{Candidate mediator 15.}
-#'   \item{m16}{Candidate mediator 16.}
-#'   \item{m17}{Candidate mediator 17.}
-#'   \item{m18}{Candidate mediator 18.}
-#'   \item{m19}{Candidate mediator 19.}
-#'   \item{y}{Outcome variable.}
+#'   \item{x}{Predictor variable. External Current.}
+#'   \item{m1}{Candidate mediator 1. Average action potential of neuron 1.}
+#'   \item{m2}{Candidate mediator 2. Average action potential of neuron 2.}
+#'   \item{m3}{Candidate mediator 3. Average action potential of neuron 3.}
+#'   \item{m4}{Candidate mediator 4. Average action potential of neuron 4.}
+#'   \item{m5}{Candidate mediator 5. Average action potential of neuron 5.}
+#'   \item{m6}{Candidate mediator 6. Average action potential of neuron 6.}
+#'   \item{m7}{Candidate mediator 7. Average action potential of neuron 7.}
+#'   \item{m8}{Candidate mediator 8. Average action potential of neuron 8.}
+#'   \item{m9}{Candidate mediator 9. Average action potential of neuron 9.}
+#'   \item{m10}{Candidate mediator 10. Average action potential of neuron 10.}
+#'   \item{m11}{Candidate mediator 11. Average action potential of neuron 11.}
+#'   \item{m12}{Candidate mediator 12. Average action potential of neuron 12.}
+#'   \item{m13}{Candidate mediator 13. Average action potential of neuron 13.}
+#'   \item{m14}{Candidate mediator 14. Average action potential of neuron 14.}
+#'   \item{m15}{Candidate mediator 15. Average action potential of neuron 15.}
+#'   \item{m16}{Candidate mediator 16. Average action potential of neuron 16.}
+#'   \item{m17}{Candidate mediator 17. Average action potential of neuron 17.}
+#'   \item{m18}{Candidate mediator 18. Average action potential of neuron 18.}
+#'   \item{m19}{Candidate mediator 19. Average action potential of neuron 19.}
+#'   \item{y}{Outcome variable. Average action potential of neuron 20.}
 #' }
 #'
 #' @details
