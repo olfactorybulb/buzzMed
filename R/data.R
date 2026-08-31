@@ -66,64 +66,58 @@
 #' @source Longitudinal spiking train data included with the \pkg{buzzMed} package.
 "sublongspikes"
 
-#' Modified framing dataset with some dichotomization
+#' Modified framing dataset
 #'
 #' A modified version of the \code{framing} dataset from the
 #' \pkg{mediation} package, originally based on the study by
-#' Brader, Valentino, and Suhay (2008). The candidate mediators have been
-#' dichotomized relative to the original \code{framing} dataset. The dataset
-#' contains 265 observations and 10 variables.
+#' Brader, Valentino, and Suhay (2008). The dataset contains selected variables
+#' from the original \code{framing} dataset and numeric recodings of
+#' \code{english}, \code{anx}, and \code{educ}.
+#' The dataset contains 265 observations and 14 variables.
 #'
-#' @format A data frame with 265 observations and 10 variables:
+#' @format A data frame with 265 observations and 14 variables:
 #' \describe{
-#'   \item{tone}{From the original \code{framing} dataset.
-#'   First treatment; whether the news story is framed positively or negatively. }
+#'   \item{treat}{Product of the two treatment variables. In the original study
+#'   the authors only find this cell to be significant.}
 #'
-#'   \item{eth}{From the original \code{framing} dataset.
-#'   Second treatment; whether the news story features a Latino or European immigrant.}
+#'   \item{age}{Subjects' age.}
 #'
-#'   \item{treat}{From the original \code{framing} dataset.
-#'   Product of the two treatment variables. In the original study the authors
-#'   only find this cell to be significant.}
+#'   \item{gender}{Subjects' gender.}
 #'
-#'   \item{negemo2}{Recoded from the \code{emo} variable in the original
-#'   \code{framing} dataset. Binary variable of subjects' negative feelings
-#'   during the experiment. A value of 1 indicates an original score of 3--7,
-#'   corresponding to stronger negative emotions, whereas a value of 0 indicates
-#'   an original score of 8--12.}
+#'   \item{income}{Subjects' income, measured as a 19-point scale.}
 #'
-#'   \item{p_harm2}{Recoded from the \code{p_harm} variable in the original
-#'   \code{framing} dataset. Binary variable of subjects' perceived harm
-#'   caused by increased immigration.  A value of 1 indicates an original
-#'   score of 6--8, whereas a value of 0 indicates a score of 2--5.}
+#'   \item{emo}{Measure of subjects' negative feeling during the experiment.
+#'   A numeric scale ranging between 3 and 12 where 3 indicates the most
+#'   negative feeling.}
 #'
-#'   \item{att2}{Recoded from the \code{immigr} variable in the original
-#'   \code{framing} dataset. Binary variable measuring subjects' attitudes
-#'   toward increased immigration. A value of 1 indicates an original score
-#'   of 3 or 4, corresponding to more negative attitudes toward increased
-#'   immigration. A value of 0 indicates an original score of 1 or 2.}
+#'   \item{p_harm}{Subjects' perceived harm caused by increased immigration.
+#'   A numeric scale between 2 and 8.}
 #'
-#'   \item{anx2}{Recoded from the \code{anx} variable in the original
-#'   \code{framing} dataset. Binary variable measuring subjects' anxiety
-#'   about increased immigration. A value of 1 indicates respondents who
-#'   reported being ``very anxious'' or ``somewhat anxious'' about increased
-#'   immigration. A value of 0 indicates respondents who reported being
-#'   ``a little anxious'' or ``not anxious at all''.}
+#'   \item{immigr}{A four-point scale measuring subjects' attitudes toward
+#'   increased immigration. Larger values indicate more negative attitudes.}
 #'
-#'   \item{english2}{Recoded from the \code{english} variable in the original
-#'   \code{framing} dataset. Binary variable measuring support for making
-#'   English the official language of the United States. A value of 1 indicates
-#'   respondents who selected ``Favor'' or ``Strongly Favor''.
-#'   A value of 0 indicates respondents who selected ``Oppose''
-#'   or ``Strongly Oppose''.}
+#'   \item{cong_mesg}{Whether subjects requested sending an anti-immigration
+#'   message to Congress on their behalf.}
 #'
-#'   \item{congmsg}{From the original \code{cong_mesg} variable in
-#'   the \code{framing} dataset. Whether subjects requested sending an
-#'   anti-immigration message to Congress on their behalf.}
+#'   \item{english}{A four-point scale indicating whether subjects favor or
+#'   oppose a law making English the official language of the U.S.}
 #'
-#'   \item{info}{From the original \code{anti_info} variable in the
-#'   \code{framing} dataset. Whether subjects wanted to receive
-#'   information from anti-immigration organizations.}
+#'   \item{anx}{A four-point scale measuring subjects' anxiety about increased
+#'   immigration.}
+#'
+#'   \item{educ}{Subjects' highest educational attainments.}
+#'
+#'   \item{english2}{Numeric recoding of \code{english}, where
+#'   1 = ``Strongly Oppose'', 2 = ``Oppose'', 3 = ``Favor'', and
+#'   4 = ``Strongly Favor''.}
+#'
+#'   \item{anx2}{Numeric recoding of \code{anx}, where
+#'   1 = ``not anxious at all'', 2 = ``a little anxious'',
+#'   3 = ``somewhat anxious'', and 4 = ``very anxious''.}
+#'
+#'   \item{educ2}{Numeric recoding of \code{educ}, where
+#'   1 = ``less than high school'', 2 = ``high school'',
+#'   3 = ``some college'', and 4 = ``bachelor's degree or higher''.}
 #' }
 #'
 #' @references
