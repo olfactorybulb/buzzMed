@@ -5,7 +5,7 @@
 \alias{framing2}
 \title{Modified framing dataset}
 \format{
-A data frame with 265 observations and 14 variables:
+A data frame with 265 observations and 11 variables:
 \describe{
   \item{treat}{Product of the two treatment variables. In the original study
   the authors only find this cell to be significant.}
@@ -28,14 +28,6 @@ A data frame with 265 observations and 14 variables:
 
   \item{cong_mesg}{Whether subjects requested sending an anti-immigration
   message to Congress on their behalf.}
-
-  \item{english}{A four-point scale indicating whether subjects favor or
-  oppose a law making English the official language of the U.S.}
-
-  \item{anx}{A four-point scale measuring subjects' anxiety about increased
-  immigration.}
-
-  \item{educ}{Subjects' highest educational attainments.}
 
   \item{english2}{Numeric recoding of \code{english}, where
   1 = ``Strongly Oppose'', 2 = ``Oppose'', 3 = ``Favor'', and
@@ -62,7 +54,7 @@ A modified version of the \code{framing} dataset from the
 Brader, Valentino, and Suhay (2008). The dataset contains selected variables
 from the original \code{framing} dataset and numeric recodings of
 \code{english}, \code{anx}, and \code{educ}.
-The dataset contains 265 observations and 14 variables.
+The dataset contains 265 observations and 11 variables.
 }
 \references{
 Brader, T., Valentino, N. A., & Suhay, E. (2008).
