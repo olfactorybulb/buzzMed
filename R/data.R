@@ -66,25 +66,30 @@
 #' @source Longitudinal spiking train data included with the \pkg{buzzMed} package.
 "sublongspikes"
 
-#' Modified framing dataset
+#' Modified dataset based on political communication experiments
 #'
 #' A modified version of the \code{framing} dataset from the
-#' \pkg{mediation} package, originally based on the study by
-#' Brader, Valentino, and Suhay (2008). The dataset contains selected variables
-#' from the original \code{framing} dataset and numeric recodings of
-#' \code{english}, \code{anx}, and \code{educ}.
-#' The dataset contains 265 observations and 11 variables.
+#' \pkg{mediation} package, originally based on political communication experiments
+#' studying how issue framing (treatment) affects public opinion or policy support
+#' (Brader, Valentino and Suhay, 2008). The dataset includes both original
+#' variables as well as variables recoded from the original framing dataset from
+#' the mediation package (Tingley et al., 2014). \code{framing2} contains 265
+#' observations and 12 variables.
 #'
-#' @format A data frame with 265 observations and 11 variables:
+#' @format A data frame with 265 observations and 12 variables:
 #' \describe{
+#'   \item{tone}{First treatment; whether the news story is framed positively or
+#'   negatively.}
+#'
+#'   \item{eth}{Second treatment; whether the news story features a Latino or
+#'   European immigrant.}
+#'
 #'   \item{treat}{Product of the two treatment variables. In the original study
 #'   the authors only find this cell to be significant.}
 #'
 #'   \item{age}{Subjects' age.}
 #'
 #'   \item{gender}{Subjects' gender.}
-#'
-#'   \item{income}{Subjects' income, measured as a 19-point scale.}
 #'
 #'   \item{emo}{Measure of subjects' negative feeling during the experiment.
 #'   A numeric scale ranging between 3 and 12 where 3 indicates the most
@@ -99,15 +104,18 @@
 #'   \item{cong_mesg}{Whether subjects requested sending an anti-immigration
 #'   message to Congress on their behalf.}
 #'
-#'   \item{english2}{Numeric recoding of \code{english}, where
+#'   \item{english2}{Numeric recoding of the original \code{english} variable
+#'   from the \code{framing} dataset. \code{english2} is recoded as
 #'   1 = ``Strongly Oppose'', 2 = ``Oppose'', 3 = ``Favor'', and
 #'   4 = ``Strongly Favor''.}
 #'
-#'   \item{anx2}{Numeric recoding of \code{anx}, where
+#'   \item{anx2}{Numeric recoding of the original \code{anx} variable
+#'   from the \code{framing} dataset. \code{anx2} is recoded as
 #'   1 = ``not anxious at all'', 2 = ``a little anxious'',
 #'   3 = ``somewhat anxious'', and 4 = ``very anxious''.}
 #'
-#'   \item{educ2}{Numeric recoding of \code{educ}, where
+#'   \item{educ2}{Numeric recoding of the original \code{educ} variable
+#'   from the \code{framing} dataset. \code{educ2} is recoded as
 #'   1 = ``less than high school'', 2 = ``high school'',
 #'   3 = ``some college'', and 4 = ``bachelor's degree or higher''.}
 #' }
