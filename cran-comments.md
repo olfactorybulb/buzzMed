@@ -1,7 +1,6 @@
 ## Test environments
 * Local: macOS Sequoia 15.6.1 (aarch64), R 4.4.2
 * Ubuntu 24.04.4 LTS, R 4.6.1 (R-hub)
-* Windows Server 2022 x64 (win-builder), R 4.6.1
 
 ## R CMD check results
 0 errors | 0 warnings | 1 note
