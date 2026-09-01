@@ -1,3 +1,13 @@
+# buzzMed 0.1.4
+
+## Dataset updates
+* Recreated the `framing2` dataset based on the original `framing` dataset from the `mediation` package.
+* Updated the variables included in `framing2` and retained the original variable names where applicable.
+* Added numeric recodings `english2`, `anx2`, and `educ2` based on the corresponding variables in the original `framing` dataset.
+* Updated the documentation for `framing2` to describe the included variables and recoding schemes.
+
+---
+
 # buzzMed 0.1.3
 
 ## New features

@@ -9,12 +9,10 @@
 This appears to be a local environment/time verification note and does not affect package functionality.
 
 ## Release summary
-This is an update release of buzzMed, version 0.1.3.
+This is an update release of buzzMed, version 0.1.4.
 
 ## Changes
-* Added `longBMed()` for exploratory Bayesian mediation analysis with longitudinal data.
-* Added three example datasets: `singlespikes`, `sublongspikes` and `framing2`.
-* Added documentation for the new datasets.
-* Updated examples to use the corrected model syntax `Y ~ X | M`.
-* Updated tests to reflect the current model syntax and prior structure.
-* Fixed previous package check issues related to examples and documentations.
+* Recreated the `framing2` dataset from the original `framing` dataset in the `mediation` package.
+* Updated the variables included in `framing2` while retaining the original variable names where applicable.
+* Added numeric recodings `english2`, `anx2`, and `educ2` based on the corresponding variables in the original `framing` dataset.
+* Updated the `framing2` documentation to reflect the revised dataset and recoding schemes.
